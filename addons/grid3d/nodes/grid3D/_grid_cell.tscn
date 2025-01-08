@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://d0a4fefobqxgd"]
 
-[ext_resource type="Script" path="res://addons/grid3d/nodes/grid3D/_grid_cell.gd" id="1_glhjc"]
+[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/_grid_cell.gd" id="1_glhjc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ygbuc"]
 size = Vector3(1, 0.01, 1)

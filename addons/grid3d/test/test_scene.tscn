@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cy6nx0tvvm3gv"]
 
-[ext_resource type="Script" path="res://addons/grid3d/nodes/grid3D/grid.gd" id="2_1pbwq"]
-[ext_resource type="PackedScene" uid="uid://d0a4fefobqxgd" path="res://addons/grid3d/nodes/grid3D/_grid_cell.tscn" id="2_3wt3a"]
-[ext_resource type="Script" path="res://addons/grid3d/nodes/grid3D/_grid_cell.gd" id="3_frjma"]
+[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="2_1pbwq"]
+[ext_resource type="PackedScene" uid="uid://d0a4fefobqxgd" path="res://addons/grid3d/nodes/Grid3D/_grid_cell.tscn" id="2_3wt3a"]
+[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/_grid_cell.gd" id="3_frjma"]
 [ext_resource type="PackedScene" uid="uid://b1q5i8fmiphjs" path="res://addons/grid3d/nodes/gridAgent3D/grid_agent_3D.tscn" id="4_pg1eb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgn47"]

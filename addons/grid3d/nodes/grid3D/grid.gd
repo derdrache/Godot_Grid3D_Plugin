@@ -25,7 +25,7 @@ class_name Grid3D
 		if Engine.is_editor_hint() and is_inside_tree():
 			_refresh_grid()
 		
-@export var cellNode := preload("res://addons/grid3d/nodes/grid3D/_grid_cell.tscn")
+@export var cellNode := preload("res://addons/grid3d/nodes/Grid3D/_grid_cell.tscn")
 
 func _ready() -> void:
 	add_to_group("Grid3D")
