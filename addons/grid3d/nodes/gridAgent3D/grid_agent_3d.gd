@@ -1,6 +1,6 @@
 extends Node3D
 
-var canMove := true
+var canMove := false
 var ownGrid: Grid3D
 
 func _ready() -> void:
@@ -41,8 +41,6 @@ func _input(event: InputEvent) -> void:
 	
 	
 	if isPositionInGrid and isCellEmpty:
-		#_change_highlighted_cell(get_parent().global_position, targetPosition)
-
 		get_parent().global_position = targetPosition
 
 func _is_position_in_grid(position: Vector3):
