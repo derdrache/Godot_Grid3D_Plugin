@@ -3,6 +3,7 @@ extends Area3D
 
 @onready var cell_mesh: MeshInstance3D = %CellMesh
 
+
 @export var color: Color = Color.WHITE:
 	set(value):
 		if Engine.is_editor_hint():
@@ -32,6 +33,8 @@ func is_empty():
 func set_size(size):
 	%CellMesh.mesh.size.x = size
 	%CellMesh.mesh.size.z = size
+	$CollisionShape3D.shape.size.x = size
+	$CollisionShape3D.shape.size.z = size
 	
 	_create_outline_mesh()
 
