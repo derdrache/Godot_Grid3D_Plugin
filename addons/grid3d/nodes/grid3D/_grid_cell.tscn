@@ -1,16 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://d0a4fefobqxgd"]
+[gd_scene load_steps=6 format=4 uid="uid://d0a4fefobqxgd"]
 
 [ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/_grid_cell.gd" id="1_glhjc"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ygbuc"]
-size = Vector3(1, 0.01, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_rblcb"]
+size = Vector3(2, 0.01, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cl3vv"]
-albedo_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_fuxe8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_55aub"]
 _surfaces = [{
-"aabb": AABB(-0.511547, -0.016547, -0.511547, 1.02309, 0.033094, 1.02309),
+"aabb": AABB(-1.02887, -0.0338675, -1.02887, 2.05773, 0.067735, 2.05773),
 "attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
 "format": 34359742487,
 "index_count": 36,
@@ -18,10 +15,10 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("v/QCv5aNhzy/9AI/v/QCP5aNhzy/9AK/v/QCP5aNhzy/9AI/v/QCv5aNhzy/9AK/v/QCv5aNh7y/9AI/v/QCP5aNh7y/9AK/v/QCP5aNh7y/9AI/v/QCv5aNh7y/9AK/v/QCP5aNhzy/9AI/v/QCv5aNhzy/9AK/v/QCP5aNhzy/9AK/v/QCv5aNhzy/9AI/v/QCP5aNh7y/9AI/v/QCv5aNh7y/9AK/v/QCP5aNh7y/9AK/v/QCv5aNh7y/9AI/v/QCP5aNhzy/9AI/v/QCv5aNh7y/9AI/v/QCv5aNhzy/9AI/v/QCP5aNh7y/9AI/v/QCP5aNhzy/9AK/v/QCv5aNh7y/9AK/v/QCv5aNhzy/9AK/v/QCP5aNh7y/9AK//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+"vertex_data": PackedByteArray("7rGDv6m4Cj3usYM/7rGDP6m4Cj3usYO/7rGDP6m4Cj3usYM/7rGDv6m4Cj3usYO/7rGDv6m4Cr3usYM/7rGDP6m4Cr3usYO/7rGDP6m4Cr3usYM/7rGDv6m4Cr3usYO/7rGDP6m4Cj3usYM/7rGDv6m4Cj3usYO/7rGDP6m4Cj3usYO/7rGDv6m4Cj3usYM/7rGDP6m4Cr3usYM/7rGDv6m4Cr3usYO/7rGDP6m4Cr3usYO/7rGDv6m4Cr3usYM/7rGDP6m4Cj3usYM/7rGDv6m4Cr3usYM/7rGDv6m4Cj3usYM/7rGDP6m4Cr3usYM/7rGDP6m4Cj3usYO/7rGDv6m4Cr3usYO/7rGDv6m4Cj3usYO/7rGDP6m4Cr3usYO//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
 }]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c533r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8enf"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkhfj"]
@@ -33,14 +30,12 @@ color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
 [node name="CellMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-mesh = SubResource("BoxMesh_ygbuc")
+mesh = SubResource("BoxMesh_rblcb")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_cl3vv")
 
-[node name="OutlineMesh" type="MeshInstance3D" parent="CellMesh"]
-unique_name_in_owner = true
-mesh = SubResource("ArrayMesh_fuxe8")
-surface_material_override/0 = SubResource("StandardMaterial3D_c533r")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CellMesh"]
+mesh = SubResource("ArrayMesh_55aub")
+surface_material_override/0 = SubResource("StandardMaterial3D_m8enf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_gkhfj")

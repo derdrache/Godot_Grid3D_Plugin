@@ -33,7 +33,8 @@ shadow_enabled = true
 
 [node name="Grid3D" type="Node3D" parent="."]
 script = ExtResource("2_1pbwq")
-cellSize = 1
+cellSize = 2
+margin = 0.2
 
 [node name="1,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -41,122 +42,122 @@ script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
 [node name="1,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.1, 0)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="1,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 0)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
-[node name="1,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.1, 0)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="1,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+[node name="1,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 0)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
+[node name="1,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 0)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="1,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 0)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
 [node name="2,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.1)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="2,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.1, 1.1)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="2,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 1.1)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="2,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.1, 1.1)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="2,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 1.1)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="3,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2.2)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
-[node name="3,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.1, 2.2)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="3,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+[node name="2,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 2.2)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
-[node name="3,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.1, 2.2)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="3,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+[node name="2,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 2.2)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
-[node name="4,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 3.3)
+[node name="2,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 2.2)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
-[node name="4,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.1, 3.3)
+[node name="2,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 2.2)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
-[node name="4,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 3.3)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="4,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.1, 3.3)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="4,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 3.3)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="5,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+[node name="3,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4.4)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
-[node name="5,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.1, 4.4)
-script = ExtResource("3_frjma")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[node name="5,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+[node name="3,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 4.4)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
+[node name="3,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 4.4)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="3,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 4.4)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="3,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 4.4)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="4,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 6.6)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="4,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 6.6)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="4,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 6.6)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="4,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 6.6)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="4,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 6.6)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="5,6" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 8.8)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="5,7" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 8.8)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="5,8" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 8.8)
+script = ExtResource("3_frjma")
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
 [node name="5,9" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.1, 4.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 8.8)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
 [node name="5,10" type="Area3D" parent="Grid3D" instance=ExtResource("2_3wt3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 4.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 8.8)
 script = ExtResource("3_frjma")
 color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 

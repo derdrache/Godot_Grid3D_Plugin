@@ -2,7 +2,6 @@
 extends Area3D
 
 @onready var cell_mesh: MeshInstance3D = %CellMesh
-@onready var outline_mesh: MeshInstance3D = %OutlineMesh
 
 @export var color: Color = Color.WHITE:
 	set(value):
@@ -29,3 +28,21 @@ func is_empty():
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var result: Dictionary = space_state.intersect_ray(query)
 	return result.is_empty()
+
+func set_size(size):
+	%CellMesh.mesh.size.x = size
+	%CellMesh.mesh.size.z = size
+	
+	_create_outline_mesh()
+
+func _create_outline_mesh():
+	%CellMesh.get_child(0).queue_free()
+	
+	var outlineMesh = MeshInstance3D.new()
+	outlineMesh.mesh = %CellMesh.mesh.create_outline(0.05 * %CellMesh.mesh.size.x)
+	
+	var material = StandardMaterial3D.new()
+	material.albedo_color = Color(0,0,0)
+	outlineMesh.set_surface_override_material(0, material)
+	
+	%CellMesh.add_child(outlineMesh)
