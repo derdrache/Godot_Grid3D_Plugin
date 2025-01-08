@@ -52,7 +52,7 @@ func _generate_grid():
 			if Engine.is_editor_hint():
 				grid_cell_instance.owner = get_tree().edited_scene_root
 			grid_cell_instance.name = str(z + 1) +  "," + str(x+1)
-			grid_cell_instance.global_position = Vector3(x * (cellSize + margin),0.1, z * (cellSize + margin))
+			grid_cell_instance.global_position = global_position + Vector3(x * (cellSize + margin),0.1, z * (cellSize + margin))
 
 func get_cell_space():
 	return cellSize + margin
