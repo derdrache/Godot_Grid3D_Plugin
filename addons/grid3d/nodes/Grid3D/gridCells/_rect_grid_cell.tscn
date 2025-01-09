@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=4 uid="uid://d0a4fefobqxgd"]
+[gd_scene load_steps=7 format=4 uid="uid://d0a4fefobqxgd"]
 
 [ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.gd" id="1_pvewh"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_rblcb"]
+[sub_resource type="BoxMesh" id="BoxMesh_mwjmq"]
+resource_local_to_scene = true
 size = Vector3(1, 0.01, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_55aub"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pfxp"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j5dgx"]
 _surfaces = [{
-"aabb": AABB(-1.02887, -0.0338675, -1.02887, 2.05773, 0.067735, 2.05773),
+"aabb": AABB(-0.528867, -0.0338675, -0.528867, 1.05773, 0.067735, 1.05773),
 "attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
 "format": 34359742487,
 "index_count": 36,
@@ -15,27 +18,28 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("7rGDv6m4Cj3usYM/7rGDP6m4Cj3usYO/7rGDP6m4Cj3usYM/7rGDv6m4Cj3usYO/7rGDv6m4Cr3usYM/7rGDP6m4Cr3usYO/7rGDP6m4Cr3usYM/7rGDv6m4Cr3usYO/7rGDP6m4Cj3usYM/7rGDv6m4Cj3usYO/7rGDP6m4Cj3usYO/7rGDv6m4Cj3usYM/7rGDP6m4Cr3usYM/7rGDv6m4Cr3usYO/7rGDP6m4Cr3usYO/7rGDv6m4Cr3usYM/7rGDP6m4Cj3usYM/7rGDv6m4Cr3usYM/7rGDv6m4Cj3usYM/7rGDP6m4Cr3usYM/7rGDP6m4Cj3usYO/7rGDv6m4Cr3usYO/7rGDv6m4Cj3usYO/7rGDP6m4Cr3usYO//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+"vertex_data": PackedByteArray("3GMHv6m4Cj3cYwc/3GMHP6m4Cj3cYwe/3GMHP6m4Cj3cYwc/3GMHv6m4Cj3cYwe/3GMHv6m4Cr3cYwc/3GMHP6m4Cr3cYwe/3GMHP6m4Cr3cYwc/3GMHv6m4Cr3cYwe/3GMHP6m4Cj3cYwc/3GMHv6m4Cj3cYwe/3GMHP6m4Cj3cYwe/3GMHv6m4Cj3cYwc/3GMHP6m4Cr3cYwc/3GMHv6m4Cr3cYwe/3GMHP6m4Cr3cYwe/3GMHv6m4Cr3cYwc/3GMHP6m4Cj3cYwc/3GMHv6m4Cr3cYwc/3GMHv6m4Cj3cYwc/3GMHP6m4Cr3cYwc/3GMHP6m4Cj3cYwe/3GMHv6m4Cr3cYwe/3GMHv6m4Cj3cYwe/3GMHP6m4Cr3cYwe//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
 }]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8enf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3gt4"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gkhfj"]
-size = Vector3(1, 0.158447, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6pvmo"]
+resource_local_to_scene = true
 
 [node name="GridCell" type="Area3D"]
 script = ExtResource("1_pvewh")
-color = Color(0.556953, 0.556953, 0.556953, 0.501961)
 
 [node name="CellMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-mesh = SubResource("BoxMesh_rblcb")
+mesh = SubResource("BoxMesh_mwjmq")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_4pfxp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CellMesh"]
-mesh = SubResource("ArrayMesh_55aub")
-surface_material_override/0 = SubResource("StandardMaterial3D_m8enf")
+mesh = SubResource("ArrayMesh_j5dgx")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3gt4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_gkhfj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_6pvmo")

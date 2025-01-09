@@ -12,7 +12,9 @@ func _set_grid():
 	
 	if collider:
 		ownGrid = collider.get_parent()
-
+	else:
+		push_warning(name + " from " + get_parent().name + " doesn't found a Grid")
+		
 func _adjust_position():
 	var cell = get_cell_on_position(global_position)
 
@@ -22,7 +24,7 @@ func _adjust_position():
 	get_parent().global_position.z = cell.global_position.z
 
 func _input(event: InputEvent) -> void:
-	if not canMove or not event is InputEventKey or not event.is_pressed(): return
+	if not canMove or not event is InputEventKey or not event.is_pressed() or not ownGrid: return
 	
 	var gridCellSize = ownGrid.get_cell_space()
 	var targetPosition = get_parent().global_position

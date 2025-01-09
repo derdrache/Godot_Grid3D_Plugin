@@ -6,30 +6,48 @@ class_name Grid3D
 	set(value): 
 		gridSize = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_refresh_grid()
+			_ready()
 			
 @export var cellSize := 1:
 	set(value): 
 		cellSize = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_refresh_grid()
+			_ready()
 		
 @export_range(0, 1, 0.05) var margin := 0.1:
 	set(value):
 		margin = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_refresh_grid()
+			_ready()
 			
 @export var cellType : Cell_Types:
 	set(value):
 		cellType = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_refresh_grid()
+			_ready()
+			
+@export var cellCheckHeight := 1
+
+@export var cellColor: Color = Color("ffffff"):
+	set(value):
+		cellColor = value
+		if Engine.is_editor_hint() and is_inside_tree():
+			for child in get_children():
+				child.change_cell_color(value)
+			
+@export var cellBorderColor: Color:
+	set(value):
+		cellBorderColor = value
+		if Engine.is_editor_hint() and is_inside_tree():
+			for child in get_children():
+				child.change_border_color(value)
 
 @export var debug_refresh := false:
 	set(value):
 		if Engine.is_editor_hint() and is_inside_tree():
-			_refresh_grid()
+			_ready()
+
+
 
 enum Cell_Types{RECT, CIRCLE}
 
@@ -42,7 +60,7 @@ func _ready() -> void:
 	_remove_grid()
 	
 	_refresh_grid()
-
+	
 func _refresh_grid():
 	_remove_grid()
 	
@@ -57,7 +75,9 @@ func _generate_grid():
 		for x in range(gridSize):
 			var grid_cell_instance = _get_grid_cell_node()
 			grid_cell_instance.set_size(cellSize)
-			
+			grid_cell_instance.set_check_empty_height(cellCheckHeight)
+			grid_cell_instance.change_cell_color(cellColor)
+			grid_cell_instance.change_border_color(cellBorderColor)
 			add_child(grid_cell_instance)
 			
 			if Engine.is_editor_hint():
