@@ -75,10 +75,11 @@ func _generate_grid():
 		for x in range(gridSize):
 			var grid_cell_instance = _get_grid_cell_node()
 			grid_cell_instance.set_size(cellSize)
-			grid_cell_instance.set_check_empty_height(cellCheckHeight)
 			grid_cell_instance.change_cell_color(cellColor)
 			grid_cell_instance.change_border_color(cellBorderColor)
 			add_child(grid_cell_instance)
+			
+			grid_cell_instance.set_check_empty_height(cellCheckHeight)
 			
 			if Engine.is_editor_hint():
 				grid_cell_instance.owner = get_tree().edited_scene_root
