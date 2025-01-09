@@ -5,7 +5,8 @@ var ownGrid: Grid3D
 
 func _ready() -> void:
 	_set_grid()
-	_adjust_position()
+	
+	_set_start_position()
 
 func _set_grid():
 	var collider = get_cell_on_position(global_position)
@@ -15,11 +16,12 @@ func _set_grid():
 	else:
 		push_warning(name + " from " + get_parent().name + " doesn't found a Grid")
 		
-func _adjust_position():
+func _set_start_position():
+	await get_tree().physics_frame
+	
 	var cell = get_cell_on_position(global_position)
 
 	if not cell: return
-	
 	get_parent().global_position.x = cell.global_position.x
 	get_parent().global_position.z = cell.global_position.z
 
@@ -62,6 +64,9 @@ func set_move(boolean: bool) -> void:
 func get_cell_on_position(position):
 	var query = PhysicsRayQueryParameters3D.create(position, position + Vector3.DOWN * 100)
 	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	query.hit_from_inside = true
+	
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var result: Dictionary = space_state.intersect_ray(query)
 	
