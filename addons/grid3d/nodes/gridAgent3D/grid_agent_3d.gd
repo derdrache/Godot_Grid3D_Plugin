@@ -54,7 +54,7 @@ func _is_cell_empty(position):
 	if collider:
 		return collider.is_empty()
 
-func _set_move(boolean: bool) -> void:
+func set_move(boolean: bool) -> void:
 	canMove = boolean
 
 func get_cell_on_position(position):
