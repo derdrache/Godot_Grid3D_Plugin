@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.gd" id="1_n1mad"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_qgqju"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_4p56g"]
 resource_local_to_scene = true
 height = 0.01
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3n7dw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rk6r"]
+resource_local_to_scene = true
+albedo_color = Color(0.835266, 0.768863, 0.737884, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wqjkr"]
 _surfaces = [{
@@ -33,8 +35,8 @@ script = ExtResource("1_n1mad")
 
 [node name="CellMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-mesh = SubResource("CylinderMesh_qgqju")
-surface_material_override/0 = SubResource("StandardMaterial3D_3n7dw")
+mesh = SubResource("CylinderMesh_4p56g")
+surface_material_override/0 = SubResource("StandardMaterial3D_0rk6r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CellMesh"]
 mesh = SubResource("ArrayMesh_wqjkr")

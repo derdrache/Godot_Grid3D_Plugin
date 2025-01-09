@@ -6,7 +6,9 @@
 resource_local_to_scene = true
 size = Vector3(1, 0.01, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pfxp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0qot"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.184314, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j5dgx"]
 _surfaces = [{
@@ -34,7 +36,7 @@ script = ExtResource("1_pvewh")
 unique_name_in_owner = true
 mesh = SubResource("BoxMesh_mwjmq")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_4pfxp")
+surface_material_override/0 = SubResource("StandardMaterial3D_l0qot")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CellMesh"]
 mesh = SubResource("ArrayMesh_j5dgx")
