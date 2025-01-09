@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=4 uid="uid://d0a4fefobqxgd"]
 
-[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/_grid_cell.gd" id="1_glhjc"]
+[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.gd" id="1_pvewh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rblcb"]
-size = Vector3(2, 0.01, 2)
+size = Vector3(1, 0.01, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_55aub"]
 _surfaces = [{
@@ -25,8 +25,8 @@ albedo_color = Color(0, 0, 0, 1)
 size = Vector3(1, 0.158447, 1)
 
 [node name="GridCell" type="Area3D"]
-script = ExtResource("1_glhjc")
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+script = ExtResource("1_pvewh")
+color = Color(0.556953, 0.556953, 0.556953, 0.501961)
 
 [node name="CellMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
