@@ -2,31 +2,44 @@
 extends Node3D
 class_name Grid3D
 
-@export var gridSize := 5:
+@export var gridWidth := 5:
 	set(value): 
-		gridSize = value
+		gridWidth = value
 		if Engine.is_editor_hint() and is_inside_tree():
 			_ready()
-			
-@export var cellSize := 1:
+
+@export var gridHeight := 5:
 	set(value): 
-		cellSize = value
+		gridHeight = value
 		if Engine.is_editor_hint() and is_inside_tree():
 			_ready()
-		
+
 @export_range(0, 1, 0.05) var margin := 0.1:
 	set(value):
 		margin = value
 		if Engine.is_editor_hint() and is_inside_tree():
 			_ready()
 			
+
+@export_group("Cell")
+
+@export var cellSize := 1:
+	set(value): 
+		cellSize = value
+		if Engine.is_editor_hint() and is_inside_tree():
+			_ready()
+		
 @export var cellType : Cell_Types:
 	set(value):
 		cellType = value
 		if Engine.is_editor_hint() and is_inside_tree():
 			_ready()
-			
-@export var cellCheckHeight := 1
+
+@export var cellCollisionHeight := 1:
+	set(value): 
+		cellCollisionHeight = value
+		if Engine.is_editor_hint() and is_inside_tree():
+			_ready()
 
 @export var cellColor: Color = Color("ffffff"):
 	set(value):
@@ -41,13 +54,6 @@ class_name Grid3D
 		if Engine.is_editor_hint() and is_inside_tree():
 			for child in get_children():
 				child.change_border_color(value)
-
-@export var debug_refresh := false:
-	set(value):
-		if Engine.is_editor_hint() and is_inside_tree():
-			_ready()
-
-
 
 enum Cell_Types{RECT, CIRCLE}
 
@@ -71,15 +77,15 @@ func _remove_grid():
 		node.queue_free()
 
 func _generate_grid():
-	for z in range(gridSize):
-		for x in range(gridSize):
+	for z in range(gridHeight):
+		for x in range(gridWidth):
 			var grid_cell_instance = _get_grid_cell_node()
 			grid_cell_instance.set_size(cellSize)
 			grid_cell_instance.change_cell_color(cellColor)
 			grid_cell_instance.change_border_color(cellBorderColor)
 			add_child(grid_cell_instance)
 			
-			grid_cell_instance.set_check_empty_height(cellCheckHeight)
+			grid_cell_instance.set_collision_height(cellCollisionHeight)
 			
 			if Engine.is_editor_hint():
 				grid_cell_instance.owner = get_tree().edited_scene_root

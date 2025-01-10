@@ -60,14 +60,17 @@ shape = SubResource("CapsuleShape3D_tye4u")
 script = ExtResource("2_btjqk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 5.557, 36.045, 53.723)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 5.892, 36.045, 53.723)
 fov = 15.0
 
 [node name="Grid3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2497, 0, 0)
 script = ExtResource("2_1pbwq")
-cellSize = 2
+gridWidth = 6
+gridHeight = 4
 margin = 0.2
+cellSize = 2
+cellCollisionHeight = null
 
 [node name="1,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -87,6 +90,10 @@ script = ExtResource("4_ot1ak")
 
 [node name="1,10" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 0)
+script = ExtResource("4_ot1ak")
+
+[node name="1,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 0)
 script = ExtResource("4_ot1ak")
 
 [node name="2,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
@@ -109,6 +116,10 @@ script = ExtResource("4_ot1ak")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 2.2)
 script = ExtResource("4_ot1ak")
 
+[node name="2,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 2.2)
+script = ExtResource("4_ot1ak")
+
 [node name="3,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4.4)
 script = ExtResource("4_ot1ak")
@@ -127,6 +138,10 @@ script = ExtResource("4_ot1ak")
 
 [node name="3,10" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 4.4)
+script = ExtResource("4_ot1ak")
+
+[node name="3,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 4.4)
 script = ExtResource("4_ot1ak")
 
 [node name="4,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
@@ -149,32 +164,17 @@ script = ExtResource("4_ot1ak")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 6.6)
 script = ExtResource("4_ot1ak")
 
-[node name="5,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 8.8)
-script = ExtResource("4_ot1ak")
-
-[node name="5,7" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 8.8)
-script = ExtResource("4_ot1ak")
-
-[node name="5,8" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 8.8)
-script = ExtResource("4_ot1ak")
-
-[node name="5,9" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 8.8)
-script = ExtResource("4_ot1ak")
-
-[node name="5,10" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 8.8)
+[node name="4,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 6.6)
 script = ExtResource("4_ot1ak")
 
 [node name="Grid3D2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12124, 0, 0)
 script = ExtResource("2_1pbwq")
-cellSize = 2
 margin = 0.2
+cellSize = 2
 cellType = 1
+cellCollisionHeight = null
 cellColor = Color(1, 0.301961, 1, 1)
 cellBorderColor = Color(0.182454, 0.420446, 1, 1)
 

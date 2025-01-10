@@ -1,7 +1,7 @@
 @tool
 extends GridCell3D
 
-func set_check_empty_height(value):
+func set_collision_height(value):
 	$CollisionShape3D.shape.size.y = value
 	$CollisionShape3D.global_position.y = value / 2.0
 

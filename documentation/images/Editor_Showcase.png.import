@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cej5lbjm85f6v"
-path="res://.godot/imported/Grid3D_Showcase.png-2e07c01f05944d9f4d074d204b2cf46d.ctex"
+uid="uid://cpx0mjwk07yqj"
+path="res://.godot/imported/Editor_Showcase.png-211f1013548876a4c3502bf97b37dc91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://documentation/images/Grid3D_Showcase.png"
-dest_files=["res://.godot/imported/Grid3D_Showcase.png-2e07c01f05944d9f4d074d204b2cf46d.ctex"]
+source_file="res://documentation/images/Editor_Showcase.png"
+dest_files=["res://.godot/imported/Editor_Showcase.png-211f1013548876a4c3502bf97b37dc91.ctex"]
 
 [params]
 
