@@ -1,6 +1,6 @@
 # Godot Grid3D Plugin
 
-<img src="addons/grid3d/documentation/images/Grid3D_Showcase.png" width="400"/>
+<img src="documentation/images/Grid3D_Showcase.png" width="400"/>
 
 ## 🚀 Usage
 Grid3D - Add to your Scene to get the Grid
