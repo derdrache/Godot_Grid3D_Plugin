@@ -93,3 +93,11 @@ func _get_grid_cell_node():
 
 func get_cell_space():
 	return cellSize + margin
+
+func get_empty_cells():
+	var emptyCells = []
+	
+	for cell in get_children():
+		if cell.is_empty(): emptyCells.append(cell)
+		
+	return emptyCells
