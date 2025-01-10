@@ -3,9 +3,9 @@
 <img src="documentation/images/Editor_Showcase.png" height="300"/> <img src="documentation/images/Grid3D_Showcase.png" width="500"/> 
 
 ## 🚀 Usage
-Grid3D - Add to your Scene to get the Grid
+<img src="addons/grid3d/assets/Grid3D.png" height="20"/> Grid3D - Add to your Scene to get the Grid
 
-GridAgent3D - Add to your Character to move around the Grid
+<img src="addons/grid3d/assets/Grid3D.png" height="20"/> GridAgent3D - Add to your Character to move around the Grid
 
 
 ## ⬇️ Installation
