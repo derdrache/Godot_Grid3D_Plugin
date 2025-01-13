@@ -4,11 +4,13 @@ var canMove := false
 var ownGrid: Grid3D
 
 func _ready() -> void:
-	_set_grid()
+	await _set_grid()
 	
 	_set_start_position()
 
 func _set_grid():
+	await get_tree().physics_frame
+	
 	var collider = get_cell_on_position(global_position)
 	
 	if collider:
@@ -17,8 +19,6 @@ func _set_grid():
 		push_warning(name + " from " + get_parent().name + " doesn't found a Grid")
 		
 func _set_start_position():
-	await get_tree().physics_frame
-	
 	var cell = get_cell_on_position(global_position)
 
 	if not cell: return
