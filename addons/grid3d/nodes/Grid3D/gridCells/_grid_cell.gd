@@ -7,6 +7,7 @@ class_name GridCell3D
 			color = value
 			change_cell_color(value)
 
+
 func change_cell_color(newColor):
 	%CellMesh.get_surface_override_material(0).albedo_color = newColor
 

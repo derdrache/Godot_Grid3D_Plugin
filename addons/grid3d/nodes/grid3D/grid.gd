@@ -68,8 +68,6 @@ func _refresh_grid():
 	_remove_grid()
 	
 	_generate_grid()
-	
-	get_empty_cells()
 
 func _remove_grid():
 	for node in get_children():
