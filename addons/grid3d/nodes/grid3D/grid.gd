@@ -20,26 +20,25 @@ class_name Grid3D
 		if Engine.is_editor_hint() and is_inside_tree():
 			_ready()
 			
-
 @export_group("Cell")
 
 @export var cellSize := 1:
 	set(value): 
 		cellSize = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_ready()
+			_refresh_grid()
 		
 @export var cellType : Cell_Types:
 	set(value):
 		cellType = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_ready()
+			_refresh_grid()
 
 @export var cellCollisionHeight := 1:
 	set(value): 
 		cellCollisionHeight = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_ready()
+			_refresh_grid()
 
 @export var cellColor: Color = Color("ffffff"):
 	set(value):
@@ -63,14 +62,14 @@ const _CIRCLE_GRID_CELL = preload("res://addons/grid3d/nodes/Grid3D/gridCells/_c
 func _ready() -> void:
 	add_to_group("Grid3D")
 	
-	_remove_grid()
-	
 	_refresh_grid()
 	
 func _refresh_grid():
 	_remove_grid()
 	
 	_generate_grid()
+	
+	get_empty_cells()
 
 func _remove_grid():
 	for node in get_children():
@@ -87,8 +86,6 @@ func _generate_grid():
 			
 			grid_cell_instance.set_collision_height(cellCollisionHeight)
 			
-			if Engine.is_editor_hint():
-				grid_cell_instance.owner = get_tree().edited_scene_root
 			grid_cell_instance.name = str(z + 1) +  "," + str(x+1)
 			grid_cell_instance.global_position = global_position + Vector3(x * (cellSize + margin),0.1, z * (cellSize + margin))
 
@@ -102,7 +99,7 @@ func get_cell_space():
 
 func get_empty_cells():
 	var emptyCells = []
-	
+	print(get_child_count())
 	for cell in get_children():
 		if cell.is_empty(): emptyCells.append(cell)
 		
