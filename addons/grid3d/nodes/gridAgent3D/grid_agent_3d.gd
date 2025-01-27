@@ -61,7 +61,7 @@ func set_move(boolean: bool) -> void:
 	canMove = boolean
 
 func get_cell_on_position(position):
-	var query = PhysicsRayQueryParameters3D.create(position, position + Vector3.DOWN * 100)
+	var query = PhysicsRayQueryParameters3D.create(position + Vector3.UP, position + Vector3.DOWN * 100)
 	query.collide_with_areas = true
 	query.collide_with_bodies = false
 	query.hit_from_inside = true
