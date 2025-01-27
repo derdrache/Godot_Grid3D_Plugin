@@ -3,7 +3,7 @@ extends GridCell3D
 
 func set_collision_height(value):
 	$CollisionShape3D.shape.size.y = value
-	$CollisionShape3D.global_position.y = value / 2.0
+	#$CollisionShape3D.global_position.y = value / 2.0
 
 func set_size(size):
 	%CellMesh.mesh.size.x = size

@@ -43,7 +43,6 @@ func _input(event: InputEvent) -> void:
 	var isPositionInGrid = _is_position_in_grid(targetPosition)
 	var isCellEmpty = _is_cell_empty(targetPosition)
 	
-	
 	if isPositionInGrid and isCellEmpty:
 		get_parent().global_position = targetPosition
 
