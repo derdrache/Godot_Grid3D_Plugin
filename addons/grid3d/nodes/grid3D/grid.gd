@@ -102,3 +102,11 @@ func get_empty_cells():
 		if cell.is_empty(): emptyCells.append(cell)
 		
 	return emptyCells
+
+func reset_all_cell_color():
+	for cell: GridCell3D in get_children():
+		cell.change_cell_color(cellColor)
+		
+func reset_all_cell_border_color():
+	for cell: GridCell3D in get_children():
+		cell.change_cell_color(cellBorderColor)
