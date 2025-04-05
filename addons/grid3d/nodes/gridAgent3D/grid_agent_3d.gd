@@ -71,3 +71,8 @@ func get_cell_on_position(position):
 	
 	if result:
 		return result.collider
+
+func get_all_cells() -> Array[GridCell3D]:
+	var allCells: Array[GridCell3D]
+	allCells.assign(ownGrid.get_children())
+	return allCells
