@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://d0a4fefobqxgd"]
 
-[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.gd" id="1_pvewh"]
+[ext_resource type="Script" uid="uid://c6ohm6vvh8trg" path="res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.gd" id="1_pvewh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mwjmq"]
 resource_local_to_scene = true

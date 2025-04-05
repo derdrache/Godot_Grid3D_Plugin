@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1q5i8fmiphjs"]
 
-[ext_resource type="Script" path="res://addons/grid3d/nodes/gridAgent3D/grid_agent_3d.gd" id="1_ufcip"]
+[ext_resource type="Script" uid="uid://bw203wbv85rto" path="res://addons/grid3d/nodes/gridAgent3D/grid_agent_3d.gd" id="1_ufcip"]
 
 [node name="GridAgent3D" type="Node3D"]
 script = ExtResource("1_ufcip")

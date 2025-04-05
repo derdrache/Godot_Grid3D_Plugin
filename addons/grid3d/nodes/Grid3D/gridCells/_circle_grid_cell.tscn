@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://mp0wgw2ux23e"]
 
-[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.gd" id="1_n1mad"]
+[ext_resource type="Script" uid="uid://br5f4cnuctngl" path="res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.gd" id="1_n1mad"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4p56g"]
 resource_local_to_scene = true

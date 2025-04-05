@@ -1,11 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy6nx0tvvm3gv"]
+[gd_scene load_steps=8 format=3 uid="uid://cy6nx0tvvm3gv"]
 
-[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="2_1pbwq"]
-[ext_resource type="Script" path="res://addons/grid3d/nodes/gridAgent3D/grid_agent_3d.gd" id="2_btjqk"]
-[ext_resource type="PackedScene" uid="uid://d0a4fefobqxgd" path="res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.tscn" id="3_220tt"]
-[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.gd" id="4_ot1ak"]
-[ext_resource type="PackedScene" uid="uid://mp0wgw2ux23e" path="res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.tscn" id="5_7wsrs"]
-[ext_resource type="Script" path="res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.gd" id="6_8884j"]
+[ext_resource type="Script" uid="uid://4ujna335bpye" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="2_1pbwq"]
+[ext_resource type="Script" uid="uid://bw203wbv85rto" path="res://addons/grid3d/nodes/gridAgent3D/grid_agent_3d.gd" id="2_btjqk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgn47"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -34,7 +30,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37089, 1.82621, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69358, 1.82621, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.616596, 0)
@@ -48,7 +44,7 @@ shape = SubResource("CapsuleShape3D_tye4u")
 script = ExtResource("2_btjqk")
 
 [node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.915, 1.19295, 5.89777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2928, 1.19295, 6.4889)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D2"]
 mesh = SubResource("CapsuleMesh_y1bt4")
@@ -64,109 +60,11 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 
 fov = 15.0
 
 [node name="Grid3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2497, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, 0, 0)
 script = ExtResource("2_1pbwq")
 gridWidth = 6
-gridHeight = 4
 margin = 0.2
 cellSize = 2
-cellCollisionHeight = null
-
-[node name="1,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-script = ExtResource("4_ot1ak")
-
-[node name="1,7" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 0)
-script = ExtResource("4_ot1ak")
-
-[node name="1,8" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 0)
-script = ExtResource("4_ot1ak")
-
-[node name="1,9" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 0)
-script = ExtResource("4_ot1ak")
-
-[node name="1,10" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 0)
-script = ExtResource("4_ot1ak")
-
-[node name="1,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 0)
-script = ExtResource("4_ot1ak")
-
-[node name="2,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2.2)
-script = ExtResource("4_ot1ak")
-
-[node name="2,7" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 2.2)
-script = ExtResource("4_ot1ak")
-
-[node name="2,8" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 2.2)
-script = ExtResource("4_ot1ak")
-
-[node name="2,9" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 2.2)
-script = ExtResource("4_ot1ak")
-
-[node name="2,10" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 2.2)
-script = ExtResource("4_ot1ak")
-
-[node name="2,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 2.2)
-script = ExtResource("4_ot1ak")
-
-[node name="3,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4.4)
-script = ExtResource("4_ot1ak")
-
-[node name="3,7" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 4.4)
-script = ExtResource("4_ot1ak")
-
-[node name="3,8" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 4.4)
-script = ExtResource("4_ot1ak")
-
-[node name="3,9" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 4.4)
-script = ExtResource("4_ot1ak")
-
-[node name="3,10" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 4.4)
-script = ExtResource("4_ot1ak")
-
-[node name="3,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 4.4)
-script = ExtResource("4_ot1ak")
-
-[node name="4,6" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 6.6)
-script = ExtResource("4_ot1ak")
-
-[node name="4,7" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 6.6)
-script = ExtResource("4_ot1ak")
-
-[node name="4,8" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 6.6)
-script = ExtResource("4_ot1ak")
-
-[node name="4,9" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 6.6)
-script = ExtResource("4_ot1ak")
-
-[node name="4,10" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 6.6)
-script = ExtResource("4_ot1ak")
-
-[node name="4,12" type="Area3D" parent="Grid3D" instance=ExtResource("3_220tt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, 6.6)
-script = ExtResource("4_ot1ak")
 
 [node name="Grid3D2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12124, 0, 0)
@@ -174,106 +72,5 @@ script = ExtResource("2_1pbwq")
 margin = 0.2
 cellSize = 2
 cellType = 1
-cellCollisionHeight = null
 cellColor = Color(1, 0.301961, 1, 1)
 cellBorderColor = Color(0.182454, 0.420446, 1, 1)
-
-[node name="1,6" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-script = ExtResource("6_8884j")
-
-[node name="1,7" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 0)
-script = ExtResource("6_8884j")
-
-[node name="1,8" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 0)
-script = ExtResource("6_8884j")
-
-[node name="1,9" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 0)
-script = ExtResource("6_8884j")
-
-[node name="1,10" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 0)
-script = ExtResource("6_8884j")
-
-[node name="2,6" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2.2)
-script = ExtResource("6_8884j")
-
-[node name="2,7" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 2.2)
-script = ExtResource("6_8884j")
-
-[node name="2,8" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 2.2)
-script = ExtResource("6_8884j")
-
-[node name="2,9" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 2.2)
-script = ExtResource("6_8884j")
-
-[node name="2,10" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 2.2)
-script = ExtResource("6_8884j")
-
-[node name="3,6" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4.4)
-script = ExtResource("6_8884j")
-
-[node name="3,7" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 4.4)
-script = ExtResource("6_8884j")
-
-[node name="3,8" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 4.4)
-script = ExtResource("6_8884j")
-
-[node name="3,9" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 4.4)
-script = ExtResource("6_8884j")
-
-[node name="3,10" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 4.4)
-script = ExtResource("6_8884j")
-
-[node name="4,6" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 6.6)
-script = ExtResource("6_8884j")
-
-[node name="4,7" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 6.6)
-script = ExtResource("6_8884j")
-
-[node name="4,8" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 6.6)
-script = ExtResource("6_8884j")
-
-[node name="4,9" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 6.6)
-script = ExtResource("6_8884j")
-
-[node name="4,10" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 6.6)
-script = ExtResource("6_8884j")
-
-[node name="5,6" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 8.8)
-script = ExtResource("6_8884j")
-
-[node name="5,7" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.1, 8.8)
-script = ExtResource("6_8884j")
-
-[node name="5,8" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.1, 8.8)
-script = ExtResource("6_8884j")
-
-[node name="5,9" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0.1, 8.8)
-script = ExtResource("6_8884j")
-
-[node name="5,10" type="Area3D" parent="Grid3D2" instance=ExtResource("5_7wsrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.1, 8.8)
-script = ExtResource("6_8884j")
