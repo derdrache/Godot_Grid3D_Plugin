@@ -72,7 +72,16 @@ func get_cell_on_position(position):
 	if result:
 		return result.collider
 
-func get_all_cells() -> Array[GridCell3D]:
+func get_all_cells(selectedGrid = null) -> Array[GridCell3D]:
 	var allCells: Array[GridCell3D]
-	allCells.assign(ownGrid.get_children())
+	
+	if selectedGrid: 
+		allCells.assign(selectedGrid.get_children())
+	else:
+		for grid in get_tree().get_nodes_in_group("Grid3D"):
+			var gridCells: Array[GridCell3D]
+			gridCells.assign(grid.get_children())
+			
+			allCells += gridCells
+	
 	return allCells
