@@ -59,6 +59,8 @@ enum Cell_Types{RECT, CIRCLE}
 const _RECT_GRID_CELL = preload("res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.tscn")
 const _CIRCLE_GRID_CELL = preload("res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.tscn")
 
+var emptyCellPicks: Array[GridCell3D]
+
 func _ready() -> void:
 	add_to_group("Grid3D")
 	
@@ -110,3 +112,12 @@ func reset_all_cell_color():
 func reset_all_cell_border_color():
 	for cell: GridCell3D in get_children():
 		cell.change_cell_color(cellBorderColor)
+
+func get_random_empty_cell() -> GridCell3D:
+	var emptyCells = get_empty_cells()
+
+	emptyCells = emptyCells.filter(func(cell): return cell not in emptyCellPicks)
+	var randomPick = emptyCells.pick_random()
+	emptyCellPicks.append(randomPick)
+	
+	return randomPick
