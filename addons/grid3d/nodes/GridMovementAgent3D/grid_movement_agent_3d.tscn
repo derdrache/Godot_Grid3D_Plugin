@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1q5i8fmiphjs"]
+
+[ext_resource type="Script" uid="uid://bw203wbv85rto" path="res://addons/grid3d/nodes/GridMovementAgent3D/grid_movement_agent_3d.gd" id="1_mb043"]
+
+[node name="GridMovementAgent3D" type="Node3D"]
+script = ExtResource("1_mb043")
