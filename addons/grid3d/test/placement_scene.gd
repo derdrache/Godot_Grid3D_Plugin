@@ -25,11 +25,10 @@ func _physics_process(delta: float) -> void:
 		var mouseGridPosition = mouseCollider.global_position
 		mouseGridPosition.y = object.find_child("GridPlacementAgent3D").size.y / 2
 		object.global_position = mouseGridPosition
-		#object.global_position.y = 1
+	
 	
 		_reset_highlight()
 		objectCells = _get_object_cells()
-
 		isValid = _check_and_hightlight_cells(objectCells)
 
 func _reset_highlight():

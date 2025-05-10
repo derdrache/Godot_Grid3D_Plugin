@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cy6nx0tvvm3gv"]
 
 [ext_resource type="Script" uid="uid://4ujna335bpye" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="2_1pbwq"]
-[ext_resource type="Script" uid="uid://bw203wbv85rto" path="res://addons/grid3d/nodes/gridAgent3D/grid_agent_3d.gd" id="2_btjqk"]
+[ext_resource type="Script" uid="uid://bw203wbv85rto" path="res://addons/grid3d/nodes/GridMovementAgent3D/grid_movement_agent_3d.gd" id="2_btjqk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgn47"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,7 +40,7 @@ mesh = SubResource("CapsuleMesh_y1bt4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.581569, 0)
 shape = SubResource("CapsuleShape3D_tye4u")
 
-[node name="GridAgent3D" type="Node3D" parent="CharacterBody3D"]
+[node name="GridMovementAgent3D" type="Node3D" parent="CharacterBody3D"]
 script = ExtResource("2_btjqk")
 
 [node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
@@ -52,7 +52,7 @@ mesh = SubResource("CapsuleMesh_y1bt4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2"]
 shape = SubResource("CapsuleShape3D_tye4u")
 
-[node name="GridAgent3D" type="Node3D" parent="CharacterBody3D2"]
+[node name="GridMovementAgent3D" type="Node3D" parent="CharacterBody3D2"]
 script = ExtResource("2_btjqk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
