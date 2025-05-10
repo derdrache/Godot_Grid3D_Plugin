@@ -12,13 +12,13 @@ class_name Grid3D
 	set(value): 
 		gridHeight = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_ready()
+			_refresh_grid()
 
 @export_range(0, 1, 0.05) var margin := 0.1:
 	set(value):
 		margin = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_ready()
+			_refresh_grid()
 			
 @export_group("Cell")
 
@@ -34,7 +34,7 @@ class_name Grid3D
 		if Engine.is_editor_hint() and is_inside_tree():
 			_refresh_grid()
 
-@export var cellCollisionHeight := 1:
+@export var cellCollisionHeight := 0.2:
 	set(value): 
 		cellCollisionHeight = value
 		if Engine.is_editor_hint() and is_inside_tree():
@@ -99,7 +99,7 @@ func get_cell_space():
 
 func get_empty_cells():
 	var emptyCells = []
-	print(get_child_count())
+
 	for cell in get_children():
 		if cell.is_empty(): emptyCells.append(cell)
 		
