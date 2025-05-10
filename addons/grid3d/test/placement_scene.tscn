@@ -1,0 +1,198 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdggx7kjwxjnc"]
+
+[ext_resource type="Script" uid="uid://4ujna335bpye" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="1_56ldx"]
+[ext_resource type="Script" uid="uid://kkqadpt0lu0q" path="res://addons/grid3d/test/placement_scene.gd" id="1_hh1g6"]
+[ext_resource type="Script" uid="uid://bxwhxetrssf1y" path="res://addons/grid3d/nodes/GridPlacementAgent3D/grid_placement_agent_3d.gd" id="1_wpeyb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hh1g6"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_25t3u"]
+sky_material = SubResource("ProceduralSkyMaterial_hh1g6")
+
+[sub_resource type="Environment" id="Environment_qatmf"]
+background_mode = 2
+sky = SubResource("Sky_25t3u")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kq7fc"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56ldx"]
+albedo_color = Color(0.732555, 0.42573, 0.135563, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hh1g6"]
+material = SubResource("StandardMaterial3D_56ldx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh1g6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25t3u"]
+albedo_color = Color(0.247664, 0.506217, 0.880978, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kq7fc"]
+material = SubResource("StandardMaterial3D_25t3u")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_25t3u"]
+size = Vector3(2, 2, 2)
+
+[node name="PlacementScene" type="Node3D"]
+script = ExtResource("1_hh1g6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qatmf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_kq7fc")
+
+[node name="Grid3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.06, -4.5)
+script = ExtResource("1_56ldx")
+gridWidth = 10
+gridHeight = 10
+margin = 0.0
+metadata/_custom_type_script = "uid://4ujna335bpye"
+
+[node name="Object1" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Object1"]
+mesh = SubResource("BoxMesh_hh1g6")
+
+[node name="GridPlacementAgent3D" type="Node3D" parent="Object1"]
+script = ExtResource("1_wpeyb")
+metadata/_custom_type_script = "uid://bxwhxetrssf1y"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Object1"]
+shape = SubResource("BoxShape3D_hh1g6")
+
+[node name="Object2" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91289, 0, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Object2"]
+mesh = SubResource("BoxMesh_kq7fc")
+
+[node name="GridPlacementAgent3D" type="Node3D" parent="Object2"]
+script = ExtResource("1_wpeyb")
+size = Vector3(2, 2, 2)
+offset = Vector3(0.5, 0, 0.5)
+metadata/_custom_type_script = "uid://bxwhxetrssf1y"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Object2"]
+shape = SubResource("BoxShape3D_25t3u")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -1.89, 20, 20)
+current = true
+fov = 20.0
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 40.69, 0)
+fov = 20.0
+
+[connection signal="body_entered" from="Grid3D/1,1" to="Grid3D/1,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,2" to="Grid3D/1,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,3" to="Grid3D/1,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,4" to="Grid3D/1,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,5" to="Grid3D/1,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,6" to="Grid3D/1,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,7" to="Grid3D/1,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,8" to="Grid3D/1,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,9" to="Grid3D/1,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/1,10" to="Grid3D/1,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,1" to="Grid3D/2,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,2" to="Grid3D/2,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,3" to="Grid3D/2,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,4" to="Grid3D/2,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,5" to="Grid3D/2,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,6" to="Grid3D/2,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,7" to="Grid3D/2,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,8" to="Grid3D/2,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,9" to="Grid3D/2,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/2,10" to="Grid3D/2,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,1" to="Grid3D/3,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,2" to="Grid3D/3,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,3" to="Grid3D/3,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,4" to="Grid3D/3,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,5" to="Grid3D/3,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,6" to="Grid3D/3,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,7" to="Grid3D/3,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,8" to="Grid3D/3,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,9" to="Grid3D/3,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/3,10" to="Grid3D/3,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,1" to="Grid3D/4,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,2" to="Grid3D/4,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,3" to="Grid3D/4,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,4" to="Grid3D/4,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,5" to="Grid3D/4,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,6" to="Grid3D/4,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,7" to="Grid3D/4,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,8" to="Grid3D/4,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,9" to="Grid3D/4,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/4,10" to="Grid3D/4,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,1" to="Grid3D/5,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,2" to="Grid3D/5,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,3" to="Grid3D/5,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,4" to="Grid3D/5,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,5" to="Grid3D/5,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,6" to="Grid3D/5,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,7" to="Grid3D/5,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,8" to="Grid3D/5,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,9" to="Grid3D/5,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/5,10" to="Grid3D/5,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,1" to="Grid3D/6,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,2" to="Grid3D/6,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,3" to="Grid3D/6,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,4" to="Grid3D/6,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,5" to="Grid3D/6,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,6" to="Grid3D/6,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,7" to="Grid3D/6,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,8" to="Grid3D/6,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,9" to="Grid3D/6,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/6,10" to="Grid3D/6,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,1" to="Grid3D/7,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,2" to="Grid3D/7,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,3" to="Grid3D/7,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,4" to="Grid3D/7,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,5" to="Grid3D/7,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,6" to="Grid3D/7,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,7" to="Grid3D/7,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,8" to="Grid3D/7,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,9" to="Grid3D/7,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/7,10" to="Grid3D/7,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,1" to="Grid3D/8,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,2" to="Grid3D/8,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,3" to="Grid3D/8,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,4" to="Grid3D/8,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,5" to="Grid3D/8,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,6" to="Grid3D/8,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,7" to="Grid3D/8,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,8" to="Grid3D/8,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,9" to="Grid3D/8,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/8,10" to="Grid3D/8,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,1" to="Grid3D/9,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,2" to="Grid3D/9,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,3" to="Grid3D/9,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,4" to="Grid3D/9,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,5" to="Grid3D/9,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,6" to="Grid3D/9,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,7" to="Grid3D/9,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,8" to="Grid3D/9,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,9" to="Grid3D/9,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/9,10" to="Grid3D/9,10" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,1" to="Grid3D/10,1" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,2" to="Grid3D/10,2" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,3" to="Grid3D/10,3" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,4" to="Grid3D/10,4" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,5" to="Grid3D/10,5" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,6" to="Grid3D/10,6" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,7" to="Grid3D/10,7" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,8" to="Grid3D/10,8" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,9" to="Grid3D/10,9" method="_on_body_entered"]
+[connection signal="body_entered" from="Grid3D/10,10" to="Grid3D/10,10" method="_on_body_entered"]
