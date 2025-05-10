@@ -12,8 +12,9 @@ func _ready() -> void:
 func get_rect() -> Rect2:
 	var objectPosition = Vector2(
 		get_parent().global_position.x - int(size.x /2), 
-		get_parent().global_position.z - int(size.y /2)
+		get_parent().global_position.z - int(size.z /2)
 		)
 	
 	var size2D = Vector2(size.x, size.z)
+	
 	return Rect2(objectPosition, size2D)
