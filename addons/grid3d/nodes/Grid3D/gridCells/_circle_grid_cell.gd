@@ -5,17 +5,22 @@ func set_collision_height(value):
 	$CollisionShape3D.shape.height = value
 
 func set_size(size):
-	%CellMesh.mesh.top_radius = size / 2.0
-	%CellMesh.mesh.bottom_radius = size / 2.0
+	var mainSize = size * 0.9
+	var outlineSize = size * 0.1
+	
+	cellSize = Vector2(size, size)
+	
+	%CellMesh.mesh.top_radius = mainSize / 2.0
+	%CellMesh.mesh.bottom_radius = mainSize / 2.0
 	$CollisionShape3D.shape.radius = size / 2.0
 	
-	_create_outline_mesh()
+	_create_outline_mesh(outlineSize)
 
-func _create_outline_mesh():
+func _create_outline_mesh(size):
 	%CellMesh.get_child(0).queue_free()
 	
 	var outlineMesh = MeshInstance3D.new()
-	outlineMesh.mesh = %CellMesh.mesh.create_outline(0.05 * %CellMesh.mesh.top_radius)
+	outlineMesh.mesh = %CellMesh.mesh.create_outline(size)
 	
 	var material = StandardMaterial3D.new()
 	material.albedo_color = Color(0,0,0)
