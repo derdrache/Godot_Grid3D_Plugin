@@ -14,14 +14,8 @@
 use GridMovementAgent3D.set_move(true) to move the character.
 you can find an example of how to use it in the text_scene (in the test folder)
 
-<br />
-<br />
-
 ### GridPlacementAgent3D
 you can find an example of how to use it in the placement_scene (in the test folder)
-
-<br />
-<br />
 
 ## ⬇️ Installation
 If you don't have a "addons" folder in your project tree:
