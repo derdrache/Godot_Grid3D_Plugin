@@ -4,4 +4,3 @@
 
 [node name="Grid" type="Node3D"]
 script = ExtResource("1_hbahd")
-cellSize = 2
