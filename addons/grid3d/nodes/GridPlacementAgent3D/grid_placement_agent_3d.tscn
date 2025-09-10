@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqnfbt24hwae"]
+
+[ext_resource type="Script" uid="uid://bxwhxetrssf1y" path="res://addons/grid3d/nodes/GridPlacementAgent3D/grid_placement_agent_3d.gd" id="1_j5oot"]
+
+[node name="GridPlacementAgent3d" type="Node3D"]
+script = ExtResource("1_j5oot")
