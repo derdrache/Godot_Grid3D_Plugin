@@ -1,13 +1,14 @@
 @tool
 extends GridCell3D
 
-@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
-@onready var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
-
 func set_collision_height(value):
+	var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+	
 	collision_shape_3d.shape.height = value
 
 func set_size(size):
+	var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
+	var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 	var mainSize = size * 0.9
 	var outlineSize = size * 0.1
 	
@@ -20,6 +21,7 @@ func set_size(size):
 	_create_outline_mesh(outlineSize)
 
 func _create_outline_mesh(size):
+	var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
 	mesh_instance_3d.get_child(0).queue_free()
 	
 	var outlineMesh = MeshInstance3D.new()
