@@ -5,10 +5,11 @@ extends GridCell3D
 @onready var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
 
 func set_collision_height(value):
+	if Engine.is_editor_hint(): return
+	
 	var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 	
 	collision_shape_3d.shape.size.y = value
-
 
 func set_size(size):
 	var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
@@ -20,10 +21,12 @@ func set_size(size):
 	
 	mesh_instance_3d.mesh.size.x = mainSize
 	mesh_instance_3d.mesh.size.z = mainSize
-	collision_shape_3d.shape.size.x = size
-	collision_shape_3d.shape.size.z = size
-	
+
 	_create_outline_mesh(outlineSize)
+	
+	if not Engine.is_editor_hint():
+		collision_shape_3d.shape.size.x = size
+		collision_shape_3d.shape.size.z = size
 
 func _create_outline_mesh(size):
 	var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
