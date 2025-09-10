@@ -32,13 +32,13 @@ size = Vector3(1, 0.2, 1)
 [node name="GridCell" type="Area3D"]
 script = ExtResource("1_pvewh")
 
-[node name="CellMesh" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 mesh = SubResource("BoxMesh_mwjmq")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_l0qot")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CellMesh"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
 mesh = SubResource("ArrayMesh_oxmkt")
 surface_material_override/0 = SubResource("StandardMaterial3D_oxmkt")
 

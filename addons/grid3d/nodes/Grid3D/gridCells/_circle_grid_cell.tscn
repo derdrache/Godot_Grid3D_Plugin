@@ -34,12 +34,12 @@ height = 0.2
 process_mode = 3
 script = ExtResource("1_n1mad")
 
-[node name="CellMesh" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 mesh = SubResource("CylinderMesh_4p56g")
 surface_material_override/0 = SubResource("StandardMaterial3D_0rk6r")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CellMesh"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
 mesh = SubResource("ArrayMesh_wqjkr")
 surface_material_override/0 = SubResource("StandardMaterial3D_xvmkm")
 

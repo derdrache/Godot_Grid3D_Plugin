@@ -1,8 +1,11 @@
 @tool
 extends GridCell3D
 
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
+
 func set_collision_height(value):
-	$CollisionShape3D.shape.height = value
+	collision_shape_3d.shape.height = value
 
 func set_size(size):
 	var mainSize = size * 0.9
@@ -10,20 +13,20 @@ func set_size(size):
 	
 	cellSize = Vector2(size, size)
 	
-	%CellMesh.mesh.top_radius = mainSize / 2.0
-	%CellMesh.mesh.bottom_radius = mainSize / 2.0
-	$CollisionShape3D.shape.radius = size / 2.0
+	mesh_instance_3d.mesh.top_radius = mainSize / 2.0
+	mesh_instance_3d.mesh.bottom_radius = mainSize / 2.0
+	collision_shape_3d.shape.radius = size / 2.0
 	
 	_create_outline_mesh(outlineSize)
 
 func _create_outline_mesh(size):
-	%CellMesh.get_child(0).queue_free()
+	mesh_instance_3d.get_child(0).queue_free()
 	
 	var outlineMesh = MeshInstance3D.new()
-	outlineMesh.mesh = %CellMesh.mesh.create_outline(size)
+	outlineMesh.mesh = mesh_instance_3d.mesh.create_outline(size)
 	
 	var material = StandardMaterial3D.new()
 	material.albedo_color = Color(0,0,0)
 	outlineMesh.set_surface_override_material(0, material)
 	
-	%CellMesh.add_child(outlineMesh)
+	mesh_instance_3d.add_child(outlineMesh)
