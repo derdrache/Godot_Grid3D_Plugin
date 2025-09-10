@@ -4,10 +4,10 @@ class_name GridCell3D
 var cellSize: Vector2 = Vector2.ZERO
 			
 func change_cell_color(newColor):
-	%CellMesh.get_surface_override_material(0).albedo_color = newColor
+	%MeshInstance3D.get_surface_override_material(0).albedo_color = newColor
 
 func change_border_color(newColor):
-	%CellMesh.get_child(0).get_surface_override_material(0).albedo_color = newColor
+	%MeshInstance3D.get_child(0).get_surface_override_material(0).albedo_color = newColor
 
 func is_empty():
 	return get_overlapping_bodies().is_empty()
