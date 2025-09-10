@@ -6,7 +6,7 @@ class_name Grid3D
 	set(value): 
 		gridWidth = value
 		if Engine.is_editor_hint() and is_inside_tree():
-			_ready()
+			_refresh_grid()
 
 @export var gridHeight := 5:
 	set(value): 
@@ -121,3 +121,34 @@ func get_random_empty_cell() -> GridCell3D:
 	emptyCellPicks.append(randomPick)
 	
 	return randomPick
+
+func get_tile_neighbors(selectedPosition):
+	selectedPosition.y = global_position.y
+	
+	var id = get_id(selectedPosition)
+	var neighbors = []
+	var neighborIds = [
+		id + 1, 
+		id -1, 
+		id - gridWidth, 
+		id + gridWidth
+	]
+
+	for neighborId in neighborIds:
+		if neighborId >= 0 and neighborId <= gridWidth * gridHeight:
+			var tile = get_tile(neighborId)
+			if tile: 
+				neighbors.append(tile)
+
+	return neighbors
+	
+func get_id(selectPosition: Vector3):
+	var width = selectPosition.x / cellSize
+	var height = selectPosition.z / cellSize
+
+	return int(height) * gridWidth + int(width)
+
+func get_tile(id: int):
+	for tile in get_children():
+		if tile.name == str(id):
+			return tile
