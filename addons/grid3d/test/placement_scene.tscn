@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdggx7kjwxjnc"]
+[gd_scene format=3 uid="uid://bdggx7kjwxjnc"]
 
 [ext_resource type="Script" uid="uid://4ujna335bpye" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="1_56ldx"]
 [ext_resource type="Script" uid="uid://kkqadpt0lu0q" path="res://addons/grid3d/test/placement_scene.gd" id="1_hh1g6"]
@@ -39,60 +39,60 @@ size = Vector3(1.8, 2, 1.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_25t3u"]
 size = Vector3(2, 2, 2)
 
-[node name="PlacementScene" type="Node3D"]
+[node name="PlacementScene" type="Node3D" unique_id=1162547136]
 script = ExtResource("1_hh1g6")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=774952146]
 environment = SubResource("Environment_qatmf")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1774462662]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1412908741]
 mesh = SubResource("PlaneMesh_kq7fc")
 
-[node name="Grid3D" type="Node3D" parent="."]
+[node name="Grid3D" type="Node3D" parent="." unique_id=645658004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.06, -4.5)
 script = ExtResource("1_56ldx")
-gridWidth = 10
 gridHeight = 10
 margin = 0.0
+cellType = 1
 metadata/_custom_type_script = "uid://4ujna335bpye"
 
-[node name="Object1" type="AnimatableBody3D" parent="."]
+[node name="Object1" type="AnimatableBody3D" parent="." unique_id=1959821614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Object1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Object1" unique_id=2135255372]
 mesh = SubResource("BoxMesh_hh1g6")
 
-[node name="GridPlacementAgent3D" type="Node3D" parent="Object1"]
+[node name="GridPlacementAgent3D" type="Node3D" parent="Object1" unique_id=1951400205]
 script = ExtResource("1_wpeyb")
 metadata/_custom_type_script = "uid://bxwhxetrssf1y"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Object1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Object1" unique_id=543284447]
 shape = SubResource("BoxShape3D_hh1g6")
 
-[node name="Object2" type="AnimatableBody3D" parent="."]
+[node name="Object2" type="AnimatableBody3D" parent="." unique_id=1168070988]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91289, 0, 2)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Object2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Object2" unique_id=1896435973]
 mesh = SubResource("BoxMesh_kq7fc")
 
-[node name="GridPlacementAgent3D" type="Node3D" parent="Object2"]
+[node name="GridPlacementAgent3D" type="Node3D" parent="Object2" unique_id=836819324]
 script = ExtResource("1_wpeyb")
 size = Vector3(2, 2, 2)
 offset = Vector3(0.5, 0, 0.5)
 metadata/_custom_type_script = "uid://bxwhxetrssf1y"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Object2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Object2" unique_id=57347840]
 shape = SubResource("BoxShape3D_25t3u")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1414591347]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -1.89, 20, 20)
 current = true
 fov = 20.0
 
-[node name="Camera3D2" type="Camera3D" parent="."]
+[node name="Camera3D2" type="Camera3D" parent="." unique_id=363812557]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 40.69, 0)
 fov = 20.0

@@ -56,8 +56,8 @@ class_name Grid3D
 
 enum Cell_Types{RECT, CIRCLE}
 
-const _RECT_GRID_CELL = preload("res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.tscn")
-const _CIRCLE_GRID_CELL = preload("res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.tscn")
+const _RECT_GRID_CELL = preload("uid://ogk1xpracbf3")
+const _CIRCLE_GRID_CELL = preload("uid://8v2v6lev7wy4")
 
 var emptyCellPicks: Array[GridCell3D]
 
@@ -76,18 +76,20 @@ func _remove_grid():
 		node.queue_free()
 
 func _generate_grid():
+	var grid_cell_instance = _get_grid_cell_node()
+	
 	for z in range(gridHeight):
 		for x in range(gridWidth):
-			var grid_cell_instance = _get_grid_cell_node()
-			grid_cell_instance.set_size(cellSize)
-			grid_cell_instance.change_cell_color(cellColor)
-			grid_cell_instance.change_border_color(cellBorderColor)
-			add_child(grid_cell_instance)
+			var gridCell = grid_cell_instance.duplicate()
+
+			add_child(gridCell)
 			
-			grid_cell_instance.set_collision_height(cellCollisionHeight)
+			gridCell.set_size(cellSize)
+			gridCell.change_cell_color(cellColor)
+			gridCell.change_border_color(cellBorderColor)			
+			gridCell.set_collision_height(cellCollisionHeight)
 			
-			grid_cell_instance.name = str(z + 1) +  "," + str(x+1)
-			grid_cell_instance.global_position = global_position + Vector3(x * (cellSize + margin),0.1, z * (cellSize + margin))
+			gridCell.global_position = global_position + Vector3(x * (cellSize + margin),0.1, z * (cellSize + margin))
 
 func _get_grid_cell_node():
 	match cellType:
