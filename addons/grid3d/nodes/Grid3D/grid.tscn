@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bugp68d56ggxd"]
+
+[ext_resource type="Script" uid="uid://8oooj66u4sf3" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="1_h3scf"]
+
+[node name="Grid" type="Node3D" unique_id=1018689379]
+script = ExtResource("1_h3scf")

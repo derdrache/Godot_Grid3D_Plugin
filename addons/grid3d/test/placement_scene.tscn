@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bdggx7kjwxjnc"]
 
-[ext_resource type="Script" uid="uid://4ujna335bpye" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="1_56ldx"]
 [ext_resource type="Script" uid="uid://kkqadpt0lu0q" path="res://addons/grid3d/test/placement_scene.gd" id="1_hh1g6"]
 [ext_resource type="Script" uid="uid://bxwhxetrssf1y" path="res://addons/grid3d/nodes/GridPlacementAgent3D/grid_placement_agent_3d.gd" id="1_wpeyb"]
+[ext_resource type="Script" uid="uid://8oooj66u4sf3" path="res://addons/grid3d/nodes/Grid3D/grid.gd" id="3_hh1g6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hh1g6"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -52,14 +52,6 @@ shadow_enabled = true
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=1412908741]
 mesh = SubResource("PlaneMesh_kq7fc")
 
-[node name="Grid3D" type="Node3D" parent="." unique_id=645658004]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.06, -4.5)
-script = ExtResource("1_56ldx")
-gridHeight = 10
-margin = 0.0
-cellType = 1
-metadata/_custom_type_script = "uid://4ujna335bpye"
-
 [node name="Object1" type="AnimatableBody3D" parent="." unique_id=1959821614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)
 
@@ -96,3 +88,11 @@ fov = 20.0
 [node name="Camera3D2" type="Camera3D" parent="." unique_id=363812557]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 40.69, 0)
 fov = 20.0
+
+[node name="Grid3D" type="Node3D" parent="." unique_id=1769290782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4.5)
+script = ExtResource("3_hh1g6")
+gridWidth = 25
+gridHeight = 25
+margin = 0.0
+metadata/_custom_type_script = "uid://8oooj66u4sf3"
