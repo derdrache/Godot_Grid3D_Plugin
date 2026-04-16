@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://c6ohm6vvh8trg" path="res://addons/grid3d/nodes/Grid3D/gridCells/_rect_grid_cell.gd" id="1_37kl0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxmkt"]
+resource_local_to_scene = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_mf4mk"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_oxmkt")
 size = Vector3(0.9, 0.1, 0.9)
 

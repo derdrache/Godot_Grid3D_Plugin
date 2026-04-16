@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://br5f4cnuctngl" path="res://addons/grid3d/nodes/Grid3D/gridCells/_circle_grid_cell.gd" id="1_37kl0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf4mk"]
+resource_local_to_scene = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_mf4mk"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_mf4mk")
 top_radius = 0.45
 bottom_radius = 0.45

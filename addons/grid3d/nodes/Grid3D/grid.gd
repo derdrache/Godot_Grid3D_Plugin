@@ -80,7 +80,11 @@ func _generate_grid():
 	
 	for z in range(gridHeight):
 		for x in range(gridWidth):
+			# for better performance in editor
 			var gridCell = grid_cell_instance.duplicate()
+			
+			if not Engine.is_editor_hint():
+				gridCell = _get_grid_cell_node()
 
 			add_child(gridCell)
 			
