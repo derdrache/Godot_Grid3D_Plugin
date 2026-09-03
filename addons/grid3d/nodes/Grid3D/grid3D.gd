@@ -42,6 +42,7 @@ enum GRID_TYPES {RECTANGLE, CIRCLE}
 
 const RECTANGLE_GRID = preload("uid://cigab7eamjibn")
 const CIRCLE_GRID = preload("uid://dpvc02h58ghi2")
+const GRID_HIGHLIGHT_NODE = preload("uid://vk2rvfufxguu")
 
 var highlightedCells: Dictionary[String, Array] = {
 		"positions": [],
@@ -58,7 +59,31 @@ func _change_grid_type():
 
 func _ready() -> void:
 	add_to_group("Grid3D")
+	
+	_setup_grid()
+	
 	_refresh_grid()
+
+func _setup_grid():
+	if get_child_count() > 0:
+		return
+		
+	var meshInstance = MeshInstance3D.new()
+	meshInstance.name = "GridMesh"
+	meshInstance.mesh = PlaneMesh.new()
+	add_child(meshInstance)
+	
+	meshInstance.set_surface_override_material(0, ShaderMaterial.new())
+	_change_grid_type()
+	
+	var collisionShape = CollisionShape3D.new()
+	collisionShape.shape = BoxShape3D.new()
+	collisionShape.shape.size = Vector3(10, 0.01, 10)
+	add_child(collisionShape)
+	
+	var highlightNode = GRID_HIGHLIGHT_NODE.instantiate()
+	add_child(highlightNode)
+	highlightNode.hide()
 
 func _refresh_grid():
 	if not is_node_ready():

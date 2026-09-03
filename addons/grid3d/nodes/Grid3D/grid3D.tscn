@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://dfj24i3wko7yn"]
 
 [ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid3D.gd" id="1_w4emg"]
-[ext_resource type="Shader" uid="uid://cigab7eamjibn" path="res://addons/grid3d/shader/rectangle_grid.gdshader" id="2_g874n"]
+[ext_resource type="Shader" uid="uid://dpvc02h58ghi2" path="res://addons/grid3d/shader/circle_grid.gdshader" id="2_tcxux"]
 [ext_resource type="PackedScene" uid="uid://vk2rvfufxguu" path="res://addons/grid3d/nodes/GridHighlightNode/grid_highlight_node.tscn" id="3_1w80s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1w80s"]
 render_priority = 0
-shader = ExtResource("2_g874n")
-shader_parameter/borderWidth = 0.01
+shader = ExtResource("2_tcxux")
+shader_parameter/circleRadius = 0.5
 shader_parameter/gridSize = Vector2(10, 10)
 shader_parameter/borderColor = Color(1, 1, 1, 1)
 shader_parameter/cellColor = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mcuym"]
+resource_local_to_scene = true
 size = Vector2(10, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4emg"]

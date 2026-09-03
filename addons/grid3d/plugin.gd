@@ -6,7 +6,7 @@ func _enter_tree() -> void:
 	add_custom_type(
 		"Grid3D", 
 		"Node3D", 
-		preload("res://addons/grid3d/nodes/Grid3D/grid.gd"), 
+		preload("uid://k4mbb3owregf"),
 		preload("res://addons/grid3d/assets/Grid3D.png")
 	)
 	add_custom_type(
