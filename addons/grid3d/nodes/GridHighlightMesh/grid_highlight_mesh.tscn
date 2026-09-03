@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://vk2rvfufxguu"]
+
+[ext_resource type="Script" uid="uid://bjhf2c8832u7v" path="res://addons/grid3d/nodes/GridHighlightMesh/grid_highlight_mesh.gd" id="1_377pe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwjma"]
+resource_local_to_scene = true
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_chwvg"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_xwjma")
+size = Vector2(1, 1)
+
+[node name="GridHighlighNode" type="Node3D" unique_id=1007175355]
+script = ExtResource("1_377pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1662336256]
+mesh = SubResource("PlaneMesh_chwvg")

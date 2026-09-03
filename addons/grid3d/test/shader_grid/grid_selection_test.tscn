@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://gncu0teoe4oh"]
+
+[ext_resource type="Script" uid="uid://b2u5qvroxf27c" path="res://addons/grid3d/test/shader_grid/grid_selection_test.gd" id="1_5gek2"]
+[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid_shader.tscn" id="1_xl00s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gek2"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_k686n"]
+sky_material = SubResource("ProceduralSkyMaterial_5gek2")
+
+[sub_resource type="Environment" id="Environment_cx0jv"]
+background_mode = 2
+sky = SubResource("Sky_k686n")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="GridSelectionTest" type="Node3D" unique_id=1885953195]
+script = ExtResource("1_5gek2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=49616947]
+environment = SubResource("Environment_cx0jv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1430835935]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="Grid" parent="." unique_id=1508115929 instance=ExtResource("1_xl00s")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=200048011]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 22.185, 6.214)
+fov = 25.0
+
+[connection signal="input_event" from="Grid" to="." method="_on_grid_input_event"]

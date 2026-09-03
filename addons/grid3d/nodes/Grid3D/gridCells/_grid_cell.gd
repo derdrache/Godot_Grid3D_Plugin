@@ -10,7 +10,7 @@ func _ready() -> void:
 			
 func change_cell_color(newColor):
 	$MeshInstance3D.mesh.surface_get_material(0).albedo_color = newColor
-	
+
 func change_border_color(newColor):
 	$OutlineMesh.mesh.surface_get_material(0).albedo_color = newColor
 

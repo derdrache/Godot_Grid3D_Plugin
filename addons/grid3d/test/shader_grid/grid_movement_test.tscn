@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dgfpelg6bn8r6"]
+
+[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid_shader.tscn" id="1_gjbr6"]
+[ext_resource type="Script" uid="uid://bw203wbv85rto" path="res://addons/grid3d/nodes/GridMovementAgent3D/grid_movement_agent_3d.gd" id="2_yb7pp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yb7pp"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8nncu"]
+sky_material = SubResource("ProceduralSkyMaterial_yb7pp")
+
+[sub_resource type="Environment" id="Environment_sog5g"]
+background_mode = 2
+sky = SubResource("Sky_8nncu")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8nncu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sog5g"]
+
+[node name="GridMovementTest" type="Node3D" unique_id=989241333]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575398163]
+environment = SubResource("Environment_sog5g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=462489067]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="Grid" parent="." unique_id=1508115929 instance=ExtResource("1_gjbr6")]
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="." unique_id=1854041633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.473194, 1, -0.47470605)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D2" unique_id=1930470569]
+mesh = SubResource("CapsuleMesh_8nncu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2" unique_id=71517471]
+shape = SubResource("CapsuleShape3D_sog5g")
+
+[node name="GridMovementAgent3D" type="Node3D" parent="CharacterBody3D2" unique_id=1507247946]
+script = ExtResource("2_yb7pp")
+canMove = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1542162832]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 22.185, 6.214)
+fov = 25.0

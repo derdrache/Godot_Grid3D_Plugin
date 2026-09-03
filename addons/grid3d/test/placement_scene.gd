@@ -52,7 +52,7 @@ func _check_and_hightlight_cells(objectCells: Array):
 
 	if objectCellCount != objectCells.size(): 
 		isValid = false
-	
+
 	for cell in objectCells:
 		if not cell.is_empty(): 
 			isValid = false
@@ -85,4 +85,4 @@ func _place_placement():
 	object = null
 	isValid = null
 	
-	_reset_highlight()
+	#_reset_highlight()
