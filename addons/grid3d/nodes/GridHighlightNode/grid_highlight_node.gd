@@ -12,6 +12,16 @@ extends Node3D
 	set(value):
 		positions = value
 		_set_count_and_position()
+@export var isCircle := false:
+	set(value):
+		isCircle = value
+		if not isCircle:
+			$MeshInstance3D.get_active_material(0).set_shader_parameter("radius", 1.0)
+
+@export var circleRadius := 0.5:
+	set(value):
+		circleRadius = value
+		$MeshInstance3D.get_active_material(0).set_shader_parameter("radius", circleRadius)
 
 func _ready() -> void:
 	hide()
@@ -41,7 +51,7 @@ func _remove_mesh(count):
 
 func _set_color_value():
 	for i in range(get_child_count()):
-		get_child(i).get_active_material(0).albedo_color = colors[i]
+		get_child(i).get_active_material(0).set_shader_parameter("color", colors[i])
 
 func _change_size():
 	for child in get_children():

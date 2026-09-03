@@ -5,8 +5,9 @@ class_name Grid3D
 @export var gridType:GRID_TYPES = GRID_TYPES.RECTANGLE:
 	set(value):
 		gridType = value
-		_change_grid_type()
-		notify_property_list_changed()
+		if Engine.is_editor_hint():
+			_change_grid_type()
+			notify_property_list_changed()
 @export var gridSize := Vector2(10,10):
 	set(value):
 		gridSize = value
@@ -24,6 +25,7 @@ class_name Grid3D
 	set(value):
 		circleRadius = value
 		$GridMesh.material_override.set_shader_parameter("circleRadius", circleRadius)
+		$GridHighlighNode.circleRadius = circleRadius
 @export var cellColor := Color.BLACK:
 	set(value):
 		cellColor = value
@@ -52,8 +54,12 @@ var highlightedCells: Dictionary[String, Array] = {
 func _change_grid_type():
 	var shader: Resource
 	match gridType:
-		GRID_TYPES.RECTANGLE: shader = RECTANGLE_GRID
-		GRID_TYPES.CIRCLE: shader = CIRCLE_GRID
+		GRID_TYPES.RECTANGLE: 
+			shader = RECTANGLE_GRID
+			$GridHighlighNode.isCircle = false
+		GRID_TYPES.CIRCLE: 
+			shader = CIRCLE_GRID
+			$GridHighlighNode.isCircle = true
 	
 	$GridMesh.get_active_material(0).shader = shader
 
@@ -73,7 +79,6 @@ func _setup_grid():
 	grid_mesh = meshInstance
 	
 	meshInstance.material_override = ShaderMaterial.new()
-	_change_grid_type()
 	
 	var collisionShape = CollisionShape3D.new()
 	collisionShape.name = "CollisionShape3D"
@@ -85,6 +90,8 @@ func _setup_grid():
 	add_child(highlightNode)
 	highlightNode.hide()
 	grid_highligh_node = highlightNode
+	
+	_change_grid_type()
 
 func _refresh_grid():
 	if not is_node_ready():

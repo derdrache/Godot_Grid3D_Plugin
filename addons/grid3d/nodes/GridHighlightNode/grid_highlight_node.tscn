@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://vk2rvfufxguu"]
 
 [ext_resource type="Script" uid="uid://bjhf2c8832u7v" path="res://addons/grid3d/nodes/GridHighlightNode/grid_highlight_node.gd" id="1_377pe"]
+[ext_resource type="Shader" uid="uid://dhb3q4rreaqdi" path="res://addons/grid3d/nodes/GridHighlightNode/circle_shader.gdshader" id="2_j8d62"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwjma"]
-resource_local_to_scene = true
-albedo_color = Color(1, 1, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h4hlf"]
+render_priority = 0
+shader = ExtResource("2_j8d62")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/radius = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_chwvg"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_xwjma")
+material = SubResource("ShaderMaterial_h4hlf")
 size = Vector2(1, 1)
 
 [node name="GridHighlighNode" type="Node3D" unique_id=1007175355]
