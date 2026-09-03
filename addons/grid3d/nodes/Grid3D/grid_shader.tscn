@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfj24i3wko7yn"]
 
 [ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid_shader.gd" id="1_w4emg"]
-[ext_resource type="Shader" uid="uid://cigab7eamjibn" path="res://addons/grid3d/shader/grid_shader.gdshader" id="2_g874n"]
+[ext_resource type="Shader" uid="uid://cigab7eamjibn" path="res://addons/grid3d/shader/rectangle_grid.gdshader" id="2_g874n"]
 [ext_resource type="PackedScene" uid="uid://vk2rvfufxguu" path="res://addons/grid3d/nodes/GridHighlightMesh/grid_highlight_mesh.tscn" id="3_1w80s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1w80s"]

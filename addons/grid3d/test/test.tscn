@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b65vs2ch8hwjo"]
+
+[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid_shader.tscn" id="1_gn8df"]
+
+[node name="Test" type="Node3D" unique_id=1521514190]
+
+[node name="Grid" parent="." unique_id=1508115929 instance=ExtResource("1_gn8df")]
