@@ -60,8 +60,6 @@ func _change_grid_type():
 func _ready() -> void:
 	add_to_group("Grid3D")
 	
-	_setup_grid()
-	
 	_refresh_grid()
 
 func _setup_grid():
@@ -72,11 +70,13 @@ func _setup_grid():
 	meshInstance.name = "GridMesh"
 	meshInstance.mesh = PlaneMesh.new()
 	add_child(meshInstance)
+	grid_mesh = meshInstance
 	
-	meshInstance.set_surface_override_material(0, ShaderMaterial.new())
+	meshInstance.material_override = ShaderMaterial.new()
 	_change_grid_type()
 	
 	var collisionShape = CollisionShape3D.new()
+	collisionShape.name = "CollisionShape3D"
 	collisionShape.shape = BoxShape3D.new()
 	collisionShape.shape.size = Vector3(10, 0.01, 10)
 	add_child(collisionShape)
@@ -84,11 +84,14 @@ func _setup_grid():
 	var highlightNode = GRID_HIGHLIGHT_NODE.instantiate()
 	add_child(highlightNode)
 	highlightNode.hide()
+	grid_highligh_node = highlightNode
 
 func _refresh_grid():
 	if not is_node_ready():
 		return
-		
+	
+	_setup_grid()
+	
 	$GridMesh.mesh.size = gridSize * cellSize
 	$GridMesh.material_override.set_shader_parameter("gridSize", gridSize)
 	var fullSize = gridSize * cellSize 

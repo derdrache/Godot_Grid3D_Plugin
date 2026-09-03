@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var grid: StaticBody3D = $Grid
+@onready var grid: StaticBody3D = $Grid3D
 
 var object: PhysicsBody3D
 var canPlace = false

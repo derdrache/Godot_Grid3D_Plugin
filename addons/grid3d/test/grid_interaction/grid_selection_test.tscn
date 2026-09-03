@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gncu0teoe4oh"]
 
 [ext_resource type="Script" uid="uid://b2u5qvroxf27c" path="res://addons/grid3d/test/grid_interaction/grid_selection_test.gd" id="1_5gek2"]
-[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid3D.tscn" id="1_xl00s"]
+[ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid3D.gd" id="2_qgq01"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gek2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,10 +27,12 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 directional_shadow_max_distance = 1.0
 
-[node name="Grid" parent="." unique_id=1508115929 instance=ExtResource("1_xl00s")]
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=200048011]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 22.185, 6.214)
 fov = 25.0
 
-[connection signal="input_event" from="Grid" to="." method="_on_grid_input_event"]
+[node name="Grid3D" type="StaticBody3D" parent="." unique_id=1278282939]
+script = ExtResource("2_qgq01")
+metadata/_custom_type_script = "uid://k4mbb3owregf"
+
+[connection signal="input_event" from="Grid3D" to="." method="_on_grid_3d_input_event"]

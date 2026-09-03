@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4nl3dygvx550"]
 
 [ext_resource type="Script" uid="uid://bbmpssjpjhoe6" path="res://addons/grid3d/test/grid_placement/placement_scene_new.gd" id="1_ef6ij"]
-[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid3D.tscn" id="1_h3rp0"]
+[ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid3D.gd" id="2_dbbwa"]
 [ext_resource type="Script" uid="uid://bxwhxetrssf1y" path="res://addons/grid3d/nodes/GridPlacementAgent3D/grid_placement_agent_3d.gd" id="2_sua4m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sua4m"]
@@ -48,7 +48,9 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 directional_shadow_max_distance = 1.0
 
-[node name="Grid" parent="." unique_id=1508115929 instance=ExtResource("1_h3rp0")]
+[node name="Grid3D" type="StaticBody3D" parent="." unique_id=13521096]
+script = ExtResource("2_dbbwa")
+metadata/_custom_type_script = "uid://k4mbb3owregf"
 
 [node name="Object1" type="AnimatableBody3D" parent="." unique_id=843134823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.335641, 0, -3)
