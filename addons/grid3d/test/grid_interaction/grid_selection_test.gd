@@ -13,11 +13,11 @@ func _on_grid_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 		
 		var mapPosition = grid.local_to_map(mousePosition)
 		var cellPosition = grid.map_to_local(mapPosition)
-		
+
 		cellPosition.y = 0.001
 		highlightPositions.append(cellPosition)
 		
-		grid.set_highlight_cells(highlightPositions, [Color.YELLOW])
+		grid.set_highlight_cells(highlightPositions, [Color.RED])
 
 func _get_mouse_position():
 	var mousePositionDepth = 100

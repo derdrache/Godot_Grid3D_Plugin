@@ -37,15 +37,14 @@ class_name Grid3D
 		if is_node_ready():
 			$GridMesh.material_override.set_shader_parameter("borderColor", borderColor)
 
-@onready var grid_mesh: MeshInstance3D = $GridMesh
-@onready var grid_highligh_node: Node3D = $GridHighlighNode
-
 enum GRID_TYPES {RECTANGLE, CIRCLE}
 
 const RECTANGLE_GRID = preload("uid://cigab7eamjibn")
 const CIRCLE_GRID = preload("uid://dpvc02h58ghi2")
 const GRID_HIGHLIGHT_NODE = preload("uid://vk2rvfufxguu")
 
+var grid_mesh: MeshInstance3D
+var grid_highligh_node: Node3D
 var highlightedCells: Dictionary[String, Array] = {
 		"positions": [],
 		"colors": []
@@ -56,12 +55,11 @@ func _change_grid_type():
 	match gridType:
 		GRID_TYPES.RECTANGLE: 
 			shader = RECTANGLE_GRID
-			$GridHighlighNode.isCircle = false
 		GRID_TYPES.CIRCLE: 
 			shader = CIRCLE_GRID
-			$GridHighlighNode.isCircle = true
 	
-	$GridMesh.get_active_material(0).shader = shader
+	if is_node_ready():
+		$GridMesh.get_active_material(0).shader = shader
 
 func _ready() -> void:
 	add_to_group("Grid3D")
@@ -70,28 +68,33 @@ func _ready() -> void:
 
 func _setup_grid():
 	if get_child_count() > 0:
-		return
+		grid_mesh = $GridMesh
+		grid_highligh_node = $GridHighlighNode
+	else:
+		var meshInstance = MeshInstance3D.new()
+		meshInstance.name = "GridMesh"
+		meshInstance.mesh = PlaneMesh.new()
+		add_child(meshInstance)
+		grid_mesh = meshInstance
 		
-	var meshInstance = MeshInstance3D.new()
-	meshInstance.name = "GridMesh"
-	meshInstance.mesh = PlaneMesh.new()
-	add_child(meshInstance)
-	grid_mesh = meshInstance
+		meshInstance.material_override = ShaderMaterial.new()
+		
+		var collisionShape = CollisionShape3D.new()
+		collisionShape.name = "CollisionShape3D"
+		collisionShape.shape = BoxShape3D.new()
+		collisionShape.shape.size = Vector3(10, 0.01, 10)
+		add_child(collisionShape)
+		
+		var highlightNode = GRID_HIGHLIGHT_NODE.instantiate()
+		add_child(highlightNode)
+		highlightNode.hide()
+		grid_highligh_node = highlightNode
+		
+		_change_grid_type()
 	
-	meshInstance.material_override = ShaderMaterial.new()
-	
-	var collisionShape = CollisionShape3D.new()
-	collisionShape.name = "CollisionShape3D"
-	collisionShape.shape = BoxShape3D.new()
-	collisionShape.shape.size = Vector3(10, 0.01, 10)
-	add_child(collisionShape)
-	
-	var highlightNode = GRID_HIGHLIGHT_NODE.instantiate()
-	add_child(highlightNode)
-	highlightNode.hide()
-	grid_highligh_node = highlightNode
-	
-	_change_grid_type()
+	match gridType:
+		GRID_TYPES.RECTANGLE: grid_highligh_node.isCircle = false
+		GRID_TYPES.CIRCLE: grid_highligh_node.isCircle = true
 
 func _refresh_grid():
 	if not is_node_ready():

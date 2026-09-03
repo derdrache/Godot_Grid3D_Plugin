@@ -33,6 +33,7 @@ fov = 25.0
 
 [node name="Grid3D" type="StaticBody3D" parent="." unique_id=1278282939]
 script = ExtResource("2_qgq01")
+gridType = 1
 metadata/_custom_type_script = "uid://k4mbb3owregf"
 
 [connection signal="input_event" from="Grid3D" to="." method="_on_grid_3d_input_event"]

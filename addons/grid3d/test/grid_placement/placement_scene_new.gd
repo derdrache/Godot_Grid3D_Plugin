@@ -61,7 +61,6 @@ func _get_mouse_intersect():
 
 func _check_and_set_highlight_node(startPosition):
 	var objectSize = object.get_node("GridPlacementAgent3D").size
-	#grid_highligh_node.size = grid.cellSize
 	startPosition.y += 0.001
 		
 	canPlace = true
@@ -83,6 +82,4 @@ func _check_and_set_highlight_node(startPosition):
 			positions.append(highlightPosition)
 
 	grid.set_highlight_cells(positions, colors)
-	#grid_highligh_node.positions = positions
-	#grid_highligh_node.colors = colors
 	
