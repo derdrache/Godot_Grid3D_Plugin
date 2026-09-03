@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dfj24i3wko7yn"]
+
+[ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid3D.gd" id="1_w4emg"]
+[ext_resource type="Shader" uid="uid://cigab7eamjibn" path="res://addons/grid3d/shader/rectangle_grid.gdshader" id="2_g874n"]
+[ext_resource type="PackedScene" uid="uid://vk2rvfufxguu" path="res://addons/grid3d/nodes/GridHighlightNode/grid_highlight_node.tscn" id="3_1w80s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1w80s"]
+render_priority = 0
+shader = ExtResource("2_g874n")
+shader_parameter/borderWidth = 0.01
+shader_parameter/gridSize = Vector2(10, 10)
+shader_parameter/borderColor = Color(1, 1, 1, 1)
+shader_parameter/cellColor = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mcuym"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4emg"]
+size = Vector3(10, 0.01, 10)
+
+[node name="Grid" type="StaticBody3D" unique_id=1508115929]
+script = ExtResource("1_w4emg")
+
+[node name="GridMesh" type="MeshInstance3D" parent="." unique_id=660809635]
+material_override = SubResource("ShaderMaterial_1w80s")
+mesh = SubResource("PlaneMesh_mcuym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1679695287]
+shape = SubResource("BoxShape3D_w4emg")
+
+[node name="GridHighlighNode" parent="." unique_id=1007175355 instance=ExtResource("3_1w80s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+visible = false

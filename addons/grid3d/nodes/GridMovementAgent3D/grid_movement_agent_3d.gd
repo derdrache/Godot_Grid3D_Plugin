@@ -1,7 +1,8 @@
 extends Node3D
 
-var canMove := false
-var ownGrid: Grid3D
+@export var grid: Node3D
+@export var canMove := false
+
 
 func _ready() -> void:
 	await _set_grid()
@@ -9,14 +10,12 @@ func _ready() -> void:
 	_set_start_position()
 
 func _set_grid():
+	if grid:
+		return
+	
 	await get_tree().physics_frame
 	
-	var collider = get_cell_on_position(global_position)
-	
-	if collider:
-		ownGrid = collider.get_parent()
-	else:
-		push_warning(name + " from " + get_parent().name + " doesn't found a Grid")
+	grid = get_tree().get_first_node_in_group("Grid3D")
 		
 func _set_start_position():
 	var cell = get_cell_on_position(global_position)
@@ -26,21 +25,21 @@ func _set_start_position():
 	get_parent().global_position.z = cell.global_position.z
 
 func _input(event: InputEvent) -> void:
-	if not canMove or not event is InputEventKey or not event.is_pressed() or not ownGrid: return
+	if not canMove or not event is InputEventKey or not event.is_pressed() or not grid: return
 	
-	var gridCellSize = ownGrid.get_cell_space()
+	var cellSize = grid.cellSize
 	var targetPosition = get_parent().global_position
 	
 	if Input.is_action_just_pressed("ui_left"):
-		targetPosition += Vector3.LEFT * gridCellSize
+		targetPosition += Vector3.LEFT * Vector3(cellSize.x, 0, cellSize.y)
 	elif Input.is_action_just_pressed("ui_right"):
-		targetPosition += Vector3.RIGHT * gridCellSize
+		targetPosition += Vector3.RIGHT * Vector3(cellSize.x, 0, cellSize.y)
 	elif Input.is_action_just_pressed("ui_up"):
-		targetPosition += Vector3.FORWARD * gridCellSize
+		targetPosition += Vector3.FORWARD * Vector3(cellSize.x, 0, cellSize.y)
 	elif Input.is_action_just_pressed("ui_down"):
-		targetPosition += Vector3.BACK * gridCellSize
+		targetPosition += Vector3.BACK * Vector3(cellSize.x, 0, cellSize.y)
 	
-	var isPositionInGrid = _is_position_in_grid(targetPosition)
+	var isPositionInGrid = grid.local_to_map(targetPosition) != null
 	var isCellEmpty = _is_cell_empty(targetPosition)
 	
 	if isPositionInGrid and isCellEmpty:
@@ -54,8 +53,10 @@ func _is_position_in_grid(position: Vector3):
 func _is_cell_empty(position):
 	var collider = get_cell_on_position(position)
 	
-	if collider:
-		return collider.is_empty()
+	if not collider or collider is Grid3D :
+		return true
+	else:
+		return false
 
 func set_move(boolean: bool) -> void:
 	canMove = boolean
@@ -63,7 +64,7 @@ func set_move(boolean: bool) -> void:
 func get_cell_on_position(position):
 	var query = PhysicsRayQueryParameters3D.create(position + Vector3.UP, position + Vector3.DOWN * 100)
 	query.collide_with_areas = true
-	query.collide_with_bodies = false
+	query.collide_with_bodies = true
 	query.hit_from_inside = true
 	
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
@@ -71,17 +72,3 @@ func get_cell_on_position(position):
 	
 	if result:
 		return result.collider
-
-func get_all_cells(selectedGrid = null) -> Array[GridCell3D]:
-	var allCells: Array[GridCell3D]
-	
-	if selectedGrid: 
-		allCells.assign(selectedGrid.get_children())
-	else:
-		for grid in get_tree().get_nodes_in_group("Grid3D"):
-			var gridCells: Array[GridCell3D]
-			gridCells.assign(grid.get_children())
-			
-			allCells += gridCells
-	
-	return allCells
