@@ -1,6 +1,6 @@
 @tool
 extends StaticBody3D
-class_name Grid3D_New
+class_name Grid3D
 
 @export var gridType:GRID_TYPES = GRID_TYPES.RECTANGLE:
 	set(value):

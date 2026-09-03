@@ -53,7 +53,7 @@ func _is_position_in_grid(position: Vector3):
 func _is_cell_empty(position):
 	var collider = get_cell_on_position(position)
 	
-	if collider is Grid3D_New:
+	if not collider or collider is Grid3D :
 		return true
 	else:
 		return false
@@ -72,17 +72,3 @@ func get_cell_on_position(position):
 	
 	if result:
 		return result.collider
-
-func get_all_cells(selectedGrid = null) -> Array[GridCell3D]:
-	var allCells: Array[GridCell3D]
-	
-	if selectedGrid: 
-		allCells.assign(selectedGrid.get_children())
-	else:
-		for grid in get_tree().get_nodes_in_group("Grid3D"):
-			var gridCells: Array[GridCell3D]
-			gridCells.assign(grid.get_children())
-			
-			allCells += gridCells
-	
-	return allCells

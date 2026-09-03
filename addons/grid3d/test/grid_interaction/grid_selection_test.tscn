@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gncu0teoe4oh"]
 
-[ext_resource type="Script" uid="uid://b2u5qvroxf27c" path="res://addons/grid3d/test/shader_grid/grid_selection_test.gd" id="1_5gek2"]
-[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid_shader.tscn" id="1_xl00s"]
+[ext_resource type="Script" uid="uid://b2u5qvroxf27c" path="res://addons/grid3d/test/grid_interaction/grid_selection_test.gd" id="1_5gek2"]
+[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid3D.tscn" id="1_xl00s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gek2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

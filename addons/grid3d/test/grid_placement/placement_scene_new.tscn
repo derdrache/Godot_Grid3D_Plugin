@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4nl3dygvx550"]
 
-[ext_resource type="Script" uid="uid://bbmpssjpjhoe6" path="res://addons/grid3d/test/shader_grid/placement_scene_new.gd" id="1_ef6ij"]
-[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid_shader.tscn" id="1_h3rp0"]
+[ext_resource type="Script" uid="uid://bbmpssjpjhoe6" path="res://addons/grid3d/test/grid_placement/placement_scene_new.gd" id="1_ef6ij"]
+[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid3D.tscn" id="1_h3rp0"]
 [ext_resource type="Script" uid="uid://bxwhxetrssf1y" path="res://addons/grid3d/nodes/GridPlacementAgent3D/grid_placement_agent_3d.gd" id="2_sua4m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sua4m"]

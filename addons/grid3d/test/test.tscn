@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b65vs2ch8hwjo"]
 
-[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid_shader.tscn" id="1_gn8df"]
+[ext_resource type="PackedScene" uid="uid://dfj24i3wko7yn" path="res://addons/grid3d/nodes/Grid3D/grid3D.tscn" id="1_gn8df"]
 
 [node name="Test" type="Node3D" unique_id=1521514190]
 

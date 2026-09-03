@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var grid: Grid3D_New = $Grid
+@onready var grid: Grid3D = $Grid
 
 func _on_grid_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("left_mouse_click"):

@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	var mouseGridPosition = grid.local_to_map(mousePosition)
 	var mouseCellPosition = grid.map_to_local(mouseGridPosition)
 	
-	if mouseCellPosition and mouseCollider is Grid3D_New:
+	if mouseCellPosition and mouseCollider is Grid3D:
 		object.global_position = Vector3(mouseCellPosition.x,object.get_node("GridPlacementAgent3D").size.y / 2.0, mouseCellPosition.z)
 		
 	_check_and_set_highlight_node(mouseCellPosition)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vk2rvfufxguu"]
 
-[ext_resource type="Script" uid="uid://bjhf2c8832u7v" path="res://addons/grid3d/nodes/GridHighlightMesh/grid_highlight_mesh.gd" id="1_377pe"]
+[ext_resource type="Script" uid="uid://bjhf2c8832u7v" path="res://addons/grid3d/nodes/GridHighlightNode/grid_highlight_node.gd" id="1_377pe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwjma"]
 resource_local_to_scene = true
