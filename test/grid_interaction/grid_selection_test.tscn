@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gncu0teoe4oh"]
 
-[ext_resource type="Script" uid="uid://b2u5qvroxf27c" path="res://addons/grid3d/test/grid_interaction/grid_selection_test.gd" id="1_5gek2"]
+[ext_resource type="Script" uid="uid://b2u5qvroxf27c" path="res://test/grid_interaction/grid_selection_test.gd" id="1_5gek2"]
 [ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid3D.gd" id="2_qgq01"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gek2"]
@@ -15,6 +15,13 @@ background_mode = 2
 sky = SubResource("Sky_k686n")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chwvg"]
+albedo_color = Color(0.3600692, 0.21504012, 4.813075e-08, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_52qdk"]
+material = SubResource("StandardMaterial3D_chwvg")
+size = Vector2(10, 10)
 
 [node name="GridSelectionTest" type="Node3D" unique_id=1885953195]
 script = ExtResource("1_5gek2")
@@ -33,7 +40,11 @@ fov = 25.0
 
 [node name="Grid3D" type="StaticBody3D" parent="." unique_id=1278282939]
 script = ExtResource("2_qgq01")
-gridType = 1
+cellColor = Color(0, 0, 0, 0)
+borderColor = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://k4mbb3owregf"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1888457096]
+mesh = SubResource("PlaneMesh_52qdk")
 
 [connection signal="input_event" from="Grid3D" to="." method="_on_grid_3d_input_event"]

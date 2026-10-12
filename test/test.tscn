@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b65vs2ch8hwjo"]
+
+[ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid3D.gd" id="1_gn8df"]
+
+[node name="Test" type="Node3D" unique_id=1521514190]
+
+[node name="Grid3D" type="StaticBody3D" parent="." unique_id=2114571415]
+script = ExtResource("1_gn8df")
+metadata/_custom_type_script = "uid://k4mbb3owregf"
+
+[node name="Grid3D2" type="StaticBody3D" parent="." unique_id=1563259584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.260216, 0, 0)
+script = ExtResource("1_gn8df")
+gridType = 1
+metadata/_custom_type_script = "uid://k4mbb3owregf"

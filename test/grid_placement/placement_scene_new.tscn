@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4nl3dygvx550"]
 
-[ext_resource type="Script" uid="uid://bbmpssjpjhoe6" path="res://addons/grid3d/test/grid_placement/placement_scene_new.gd" id="1_ef6ij"]
+[ext_resource type="Script" uid="uid://bbmpssjpjhoe6" path="res://test/grid_placement/placement_scene_new.gd" id="1_ef6ij"]
 [ext_resource type="Script" uid="uid://k4mbb3owregf" path="res://addons/grid3d/nodes/Grid3D/grid3D.gd" id="2_dbbwa"]
 [ext_resource type="Script" uid="uid://bxwhxetrssf1y" path="res://addons/grid3d/nodes/GridPlacementAgent3D/grid_placement_agent_3d.gd" id="2_sua4m"]
 
