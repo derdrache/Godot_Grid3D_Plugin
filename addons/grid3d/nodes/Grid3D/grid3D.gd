@@ -5,7 +5,7 @@ class_name Grid3D
 @export var gridType:GRID_TYPES = GRID_TYPES.RECTANGLE:
 	set(value):
 		gridType = value
-		if Engine.is_editor_hint():
+		if Engine.is_editor_hint() and is_node_ready():
 			_change_grid_type()
 			notify_property_list_changed()
 @export var gridSize := Vector2(10,10):
@@ -58,8 +58,7 @@ func _change_grid_type():
 		GRID_TYPES.CIRCLE: 
 			shader = CIRCLE_GRID
 	
-	if is_node_ready():
-		$GridMesh.get_active_material(0).shader = shader
+	$GridMesh.get_active_material(0).shader = shader
 
 func _ready() -> void:
 	add_to_group("Grid3D")
@@ -104,6 +103,7 @@ func _refresh_grid():
 	
 	$GridMesh.mesh.size = gridSize * cellSize
 	$GridMesh.material_override.set_shader_parameter("gridSize", gridSize)
+	
 	var fullSize = gridSize * cellSize 
 	$CollisionShape3D.shape.size = Vector3(fullSize.x, 0.01, fullSize.y)
 
@@ -114,14 +114,15 @@ func local_to_map(localPosition):
 	var adjustLocalPosition = locPositionVec2 + gridSize * cellSize / 2.0
 
 	var mapPosition = floor(adjustLocalPosition / cellSize)
-
-	var inGrid = mapPosition.x >= 0 and mapPosition.x <= gridSize.x - 1  and mapPosition.y >= 0 and mapPosition.y <= gridSize.y - 1 
 	
-	if not inGrid:
+	if not _in_grid(mapPosition):
 		return
 
 	return mapPosition
-	
+
+func _in_grid(mapPosition):
+	return mapPosition.x >= 0 and mapPosition.x <= gridSize.x - 1  and mapPosition.y >= 0 and mapPosition.y <= gridSize.y - 1 
+
 func map_to_local(mapPosition):
 	var localPosition = mapPosition * cellSize	
 	
@@ -132,15 +133,6 @@ func map_to_local(mapPosition):
 func height():
 	return global_position.y
 
-func set_highlight_cells(cellPositions: Array[Vector3], colors: Array[Color]):
-	
-	if cellPositions.size() != colors.size():
-		return
-
-	highlightedCells.positions = cellPositions
-	highlightedCells.colors = colors
-	
-	_refresh_grid_highlight_node()
 
 func _refresh_grid_highlight_node():
 	if highlightedCells.positions.is_empty():
@@ -150,11 +142,6 @@ func _refresh_grid_highlight_node():
 	grid_highligh_node.positions = highlightedCells.positions
 	grid_highligh_node.colors = highlightedCells.colors
 
-func reset_highlight():
-	highlightedCells.positions = []
-	highlightedCells.colors = []
-	
-	_refresh_grid_highlight_node()
 
 func _validate_property(property: Dictionary) -> void:
 	var hideList = []
@@ -167,3 +154,36 @@ func _validate_property(property: Dictionary) -> void:
 		
 	if property.name in hideList: 
 		property.usage = PROPERTY_USAGE_NO_EDITOR
+
+
+func get_neighbors(mapPosition):
+	var neighbors = []
+	
+	var neighborPositions = [
+		mapPosition + mapPosition.x + 1, 
+		mapPosition + mapPosition.x -1, 
+		mapPosition + mapPosition.y + 1, 
+		mapPosition + mapPosition.y - 1
+	]
+	
+	for neighbor in neighborPositions:
+		if _in_grid(neighbor):
+			neighbors.append(neighbor)
+			
+	return neighbors
+
+func set_highlight_cells(cellPositions: Array[Vector3], colors: Array[Color]):
+	
+	if cellPositions.size() != colors.size():
+		return
+
+	highlightedCells.positions = cellPositions
+	highlightedCells.colors = colors
+	
+	_refresh_grid_highlight_node()
+
+func reset_highlight():
+	highlightedCells.positions = []
+	highlightedCells.colors = []
+	
+	_refresh_grid_highlight_node()
